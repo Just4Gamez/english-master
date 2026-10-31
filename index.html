@@ -43,7 +43,7 @@
                 </div>
                 <div>
                     <h1 class="font-bold text-lg leading-tight bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">English Master</h1>
-                    <p class="text-xs text-slate-400">Phonics, Vocabulary, Conversation & Grammar</p>
+                    <p class="text-xs text-slate-400">Vocabulary, Conversation & Grammar Lab</p>
                 </div>
             </div>
 
@@ -62,24 +62,16 @@
         <!-- HOME SECTION -->
         <section id="section-home" class="space-y-8 transition-all duration-300">
             <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 border border-slate-800 p-8 md:p-12 text-center shadow-2xl">
-                <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black select-none">ABC</div>
+                <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black select-none">ENGLISH</div>
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
-                    <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/30 uppercase tracking-wider">Grammar Lab & Conversation Lengkap</span>
+                    <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/30 uppercase tracking-wider">Fokus Utama: Conversation & Grammar</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Master English Fluently</h2>
-                    <p class="text-slate-300 text-sm md:text-base">Kini dikemas kini dengan nota English Grammar Lab yang lengkap untuk rujukan dan semakan pantas anda!</p>
+                    <p class="text-slate-300 text-sm md:text-base">Pilih menu di bawah untuk mula praktis perbualan harian, rujukan tatabahasa, atau kosa kata.</p>
                 </div>
             </div>
 
-            <!-- Menu Pilihan Utama -->
+            <!-- Menu Pilihan Utama (Tanpa Phonics/Writing Lab) -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div onclick="openWritingLab()" class="bg-slate-900/80 border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
-                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
-                        <i class="fa-solid fa-pen-nib"></i>
-                    </div>
-                    <h3 class="font-bold text-lg text-white">Phonics & Writing Lab</h3>
-                    <p class="text-slate-400 text-sm">Belajar sebutan abjad, panduan gurisan & kanvas interaktif menulis huruf.</p>
-                </div>
-
                 <div onclick="showSection('levels')" class="bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-graduation-cap"></i>
@@ -100,7 +92,7 @@
                     <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-book-atlas"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-white">English Grammar Lab (Lengkap)</h3>
+                    <h3 class="font-bold text-lg text-white">English Grammar Lab</h3>
                     <p class="text-slate-400 text-sm">Rujukan formula tatabahasa lengkap: Tenses, Modals, Prepositions & Soalan.</p>
                 </div>
 
@@ -112,12 +104,12 @@
                     <p class="text-slate-400 text-sm">Cari senarai penuh kosa kata dan formula tatabahasa Inggeris.</p>
                 </div>
 
-                <div onclick="openListenMode()" class="bg-slate-900/80 border border-slate-800 hover:border-blue-400/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
+                <div onclick="openListenMode()" class="bg-slate-900/80 border border-slate-800 hover:border-blue-400/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl md:col-span-2 lg:col-span-2">
                     <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-300 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-headphones"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-white">Listen Mode</h3>
-                    <p class="text-slate-400 text-sm">Fokus mendengar sebutan audio penutur asli untuk kesemua frasa.</p>
+                    <h3 class="font-bold text-lg text-white">Listen Mode (Latihan Audio)</h3>
+                    <p class="text-slate-400 text-sm">Fokus mendengar sebutan audio penutur asli untuk kesemua frasa dan nota.</p>
                 </div>
             </div>
         </section>
@@ -162,65 +154,6 @@
                 </button>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="grammar-lab-container"></div>
-        </section>
-
-        <!-- WRITING & PHONICS LAB SECTION -->
-        <section id="section-writing" class="hidden space-y-6 transition-all duration-300">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
-                <div>
-                    <span class="text-xs font-semibold text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/25">WRITING & PHONICS LAB</span>
-                    <h2 class="text-2xl font-bold text-white">Belajar Menulis Huruf & Phonics</h2>
-                    <p class="text-slate-400 text-sm">Ikut panduan gurisan dan praktis tulis di atas kanvas</p>
-                </div>
-                <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
-                    <i class="fa-solid fa-arrow-left"></i><span>Kembali</span>
-                </button>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-4 shadow-xl md:col-span-1">
-                    <h3 class="font-bold text-white text-sm uppercase tracking-wider text-orange-400">Pilih Abjad (A-Z)</h3>
-                    <div class="grid grid-cols-5 gap-2 max-h-[380px] overflow-y-auto pr-2" id="writing-chars-grid"></div>
-                </div>
-
-                <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl md:col-span-2 space-y-6 flex flex-col items-center">
-                    <div class="w-full flex justify-between items-center">
-                        <div>
-                            <span id="writing-romaji-badge" class="text-xs font-bold text-blue-400 bg-blue-500/10 px-2.5 py-1 rounded border border-blue-500/20">Phonics: /eɪ/</span>
-                            <h3 id="writing-char-title" class="text-lg font-bold text-white mt-1">Letter: A / a</h3>
-                        </div>
-                        <button onclick="playWritingAudio()" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg transition">
-                            <i class="fa-solid fa-volume-high"></i>
-                        </button>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-                        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col items-center justify-center text-center space-y-2">
-                            <span class="text-xs font-bold text-slate-400">Panduan Gurisan (Stroke Order)</span>
-                            <div class="w-36 h-36 bg-slate-900 border-2 border-slate-700 rounded-2xl stroke-box flex items-center justify-center relative">
-                                <span id="writing-guide-char" class="text-6xl font-black text-amber-400 opacity-80">A</span>
-                            </div>
-                            <p id="writing-stroke-text" class="text-xs text-slate-300">1. Tarik garis ke atas & kanan<br>2. Tarik garis ke bawah<br>3. Garis melintang di tengah</p>
-                        </div>
-
-                        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col items-center justify-center text-center space-y-2">
-                            <span class="text-xs font-bold text-slate-400">Kanvas Latihan Anda (Lukis Di Sini)</span>
-                            <div class="relative w-36 h-36 bg-slate-900 border-2 border-dashed border-orange-500/50 rounded-2xl overflow-hidden stroke-box touch-none">
-                                <canvas id="draw-canvas" width="144" height="144" class="cursor-crosshair w-full h-full"></canvas>
-                            </div>
-                            <button onclick="clearCanvas()" class="px-4 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition flex items-center space-x-1">
-                                <i class="fa-solid fa-rotate-left"></i> <span>Padam / Semula</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-between w-full pt-2">
-                        <button onclick="navigateWriting(-1)" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold">Sebelum</button>
-                        <span id="writing-progress" class="text-slate-400 text-sm font-bold flex items-center">1 / 26</span>
-                        <button onclick="navigateWriting(1)" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold">Seterusnya</button>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- STUDY SECTION -->
@@ -403,39 +336,6 @@
             "Taxi": "🚕", "Train": "🚂", "Shoes": "👞", "Soap": "🧼", "Butterfly": "🦋",
             "Tissue": "🧻", "Mirror": "🪞", "Juice": "🧃", "Lion": "🦁", "Tiger": "🐅", "Tree": "🌳"
         };
-
-        const writingData = [
-            { char: "A", rumi: "/eɪ/", type: "Letter A", stroke: "1. Garis serong ke atas & kanan\n2. Garis serong ke bawah\n3. Melintang di tengah" },
-            { char: "B", rumi: "/biː/", type: "Letter B", stroke: "1. Garis tegak ke bawah\n2. Lengkok atas\n3. Lengkok bawah" },
-            { char: "C", rumi: "/siː/", type: "Letter C", stroke: "1. Lengkok separuh bulatan ke kiri" },
-            { char: "D", rumi: "/diː/", type: "Letter D", stroke: "1. Garis tegak ke bawah\n2. Lengkok besar dari atas ke bawah" },
-            { char: "E", rumi: "/iː/", type: "Letter E", stroke: "1. Garis tegak ke bawah\n2. Tiga garis melintang (atas, tengah, bawah)" },
-            { char: "F", rumi: "/ɛf/", type: "Letter F", stroke: "1. Garis tegak ke bawah\n2. Melintang atas\n3. Melintang tengah" },
-            { char: "G", rumi: "/dʒiː/", type: "Letter G", stroke: "1. Lengkok seperti C\n2. Masuk ke dalam & melintang" },
-            { char: "H", rumi: "/eɪtʃ/", type: "Letter H", stroke: "1. Dua garis tegak selari\n2. Melintang di tengah" },
-            { char: "I", rumi: "/aɪ/", type: "Letter I", stroke: "1. Garis tegak lurus ke bawah" },
-            { char: "J", rumi: "/dʒeɪ/", type: "Letter J", stroke: "1. Garis tegak & melengkung ke atas di bawah" },
-            { char: "K", rumi: "/keɪ/", type: "Letter K", stroke: "1. Garis tegak ke bawah\n2. Serong ke atas\n3. Serong ke bawah" },
-            { char: "L", rumi: "/ɛl/", type: "Letter L", stroke: "1. Garis tegak ke bawah\n2. Melintang ke kanan di bawah" },
-            { char: "M", rumi: "/ɛm/", type: "Letter M", stroke: "1. Tegak ke atas/bawah dua kali\n2. Bentuk puncak gunung" },
-            { char: "N", rumi: "/ɛn/", type: "Letter N", stroke: "1. Tegak ke bawah\n2. Serong ke kanan\n3. Tegak ke atas" },
-            { char: "O", rumi: "/oʊ/", type: "Letter O", stroke: "1. Bulatan penuh" },
-            { char: "P", rumi: "/piː/", type: "Letter P", stroke: "1. Garis tegak ke bawah\n2. Lengkok separuh di atas" },
-            { char: "Q", rumi: "/kjuː/", type: "Letter Q", stroke: "1. Bulatan penuh\n2. Garis serong kecil di bawah" },
-            { char: "R", rumi: "/ɑːr/", type: "Letter R", stroke: "1. Garis tegak\n2. Lengkok atas\n3. Garis serong ke bawah" },
-            { char: "S", rumi: "/ɛs/", type: "Letter S", stroke: "1. Melengkung S bersambung" },
-            { char: "T", rumi: "/tiː/", type: "Letter T", stroke: "1. Melintang di atas\n2. Tegak ke bawah di tengah" },
-            { char: "U", rumi: "/juː/", type: "Letter U", stroke: "1. Turun ke bawah, melengkung naik ke atas" },
-            { char: "V", rumi: "/viː/", type: "Letter V", stroke: "1. Serong ke bawah\n2. Serong ke atas" },
-            { char: "W", rumi: "/ˈdʌbəl.juː/", type: "Letter W", stroke: "1. Dua huruf V bergabung" },
-            { char: "X", rumi: "/ɛks/", type: "Letter X", stroke: "1. Garis silang pangkah" },
-            { char: "Y", rumi: "/waɪ/", type: "Letter Y", stroke: "1. Dua garis serong bercantas\n2. Tegak ke bawah" },
-            { char: "Z", rumi: "/zɛd/", type: "Letter Z", stroke: "1. Melintang atas\n2. Serong ke kiri\n3. Melintang bawah" }
-        ];
-
-        let currentWritingIndex = 0;
-        let canvas, ctx;
-        let isDrawing = false;
 
         const levelsData = [
             {
@@ -906,7 +806,6 @@
             }
         ];
 
-        // ENGLISH GRAMMAR LAB YANG DIPERLUASKAN & LENGKAP UNTUK RUJUKAN
         const grammarLabData = [
             {
                 id: 'g1',
@@ -986,14 +885,12 @@
             renderLevelCards();
             renderConversationCards();
             renderGrammarLabCards();
-            renderWritingCharsGrid();
             buildAllWordsList();
             showSection('home');
-            initCanvas();
         });
 
         function showSection(sectionId) {
-            ['home', 'levels', 'conversation', 'grammar-lab', 'writing', 'study', 'quiz', 'words', 'listen', 'result'].forEach(id => {
+            ['home', 'levels', 'conversation', 'grammar-lab', 'study', 'quiz', 'words', 'listen', 'result'].forEach(id => {
                 const el = document.getElementById(`section-${id}`);
                 if (el) el.classList.add('hidden');
             });
@@ -1078,91 +975,8 @@
             });
         }
 
-        function renderWritingCharsGrid() {
-            const grid = document.getElementById('writing-chars-grid');
-            grid.innerHTML = '';
-            writingData.forEach((w, idx) => {
-                const btn = document.createElement('button');
-                btn.className = "h-12 rounded-xl bg-slate-950 border border-slate-800 hover:border-orange-500 text-amber-400 font-bold text-lg flex items-center justify-center transition";
-                btn.innerText = w.char;
-                btn.onclick = () => { currentWritingIndex = idx; updateWritingCard(); };
-                grid.appendChild(btn);
-            });
-        }
-
         function openConversationMenu() { showSection('conversation'); }
         function openGrammarLabMenu() { showSection('grammar-lab'); }
-        function openWritingLab() { 
-            showSection('writing'); 
-            updateWritingCard();
-            setTimeout(initCanvas, 100);
-        }
-
-        function updateWritingCard() {
-            const item = writingData[currentWritingIndex];
-            document.getElementById('writing-romaji-badge').innerText = `Phonics: ${item.rumi}`;
-            document.getElementById('writing-char-title').innerText = `${item.type}`;
-            document.getElementById('writing-guide-char').innerText = item.char;
-            document.getElementById('writing-stroke-text').innerText = item.stroke;
-            document.getElementById('writing-progress').innerText = `${currentWritingIndex + 1} / ${writingData.length}`;
-            clearCanvas();
-        }
-
-        function navigateWriting(dir) {
-            currentWritingIndex += dir;
-            if (currentWritingIndex < 0) currentWritingIndex = 0;
-            if (currentWritingIndex >= writingData.length) currentWritingIndex = writingData.length - 1;
-            updateWritingCard();
-        }
-
-        function playWritingAudio() {
-            const item = writingData[currentWritingIndex];
-            speakText(item.char);
-        }
-
-        function initCanvas() {
-            canvas = document.getElementById('draw-canvas');
-            if (!canvas) return;
-            ctx = canvas.getContext('2d');
-            ctx.strokeStyle = '#f59e0b';
-            ctx.lineWidth = 6;
-            ctx.lineCap = 'round';
-            ctx.lineJoin = 'round';
-
-            canvas.onmousedown = startDrawing;
-            canvas.onmousemove = draw;
-            canvas.onmouseup = stopDrawing;
-            canvas.onmouseleave = stopDrawing;
-
-            canvas.ontouchstart = (e) => { e.preventDefault(); startDrawing(e.touches[0]); };
-            canvas.ontouchmove = (e) => { e.preventDefault(); draw(e.touches[0]); };
-            canvas.ontouchend = stopDrawing;
-        }
-
-        function getMousePos(e) {
-            const rect = canvas.getBoundingClientRect();
-            return {
-                x: (e.clientX - rect.left) * (canvas.width / rect.width),
-                y: (e.clientY - rect.top) * (canvas.height / rect.height)
-            };
-        }
-
-        function startDrawing(e) {
-            isDrawing = true;
-            const pos = getMousePos(e);
-            ctx.beginPath();
-            ctx.moveTo(pos.x, pos.y);
-        }
-
-        function draw(e) {
-            if (!isDrawing) return;
-            const pos = getMousePos(e);
-            ctx.lineTo(pos.x, pos.y);
-            ctx.stroke();
-        }
-
-        function stopDrawing() { isDrawing = false; }
-        function clearCanvas() { if (!ctx) return; ctx.clearRect(0, 0, canvas.width, canvas.height); }
 
         function startLevel(levelId) {
             currentLevelObj = levelsData.find(l => l.id === levelId);
