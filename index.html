@@ -16,12 +16,7 @@
             theme: {
                 extend: {
                     colors: {
-                        english: {
-                            blue: '#1d4ed8',
-                            red: '#b91c1c',
-                            dark: '#0f172a',
-                            card: '#1e293b'
-                        }
+                        english: { blue: '#1d4ed8', red: '#b91c1c', dark: '#0f172a', card: '#1e293b' }
                     }
                 }
             }
@@ -52,7 +47,6 @@
                 </div>
             </div>
 
-            <!-- Stats Bar -->
             <div class="flex items-center space-x-3 bg-slate-800/80 px-4 py-1.5 rounded-full border border-slate-700/50 text-sm">
                 <div class="flex items-center space-x-1" title="Mata Skor">
                     <i class="fa-solid fa-star text-amber-400"></i>
@@ -65,20 +59,19 @@
     <!-- Main Container -->
     <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full">
 
-        <!-- ================= HOME SECTION ================= -->
+        <!-- HOME SECTION -->
         <section id="section-home" class="space-y-8 transition-all duration-300">
             <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 border border-slate-800 p-8 md:p-12 text-center shadow-2xl">
                 <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black select-none">ABC</div>
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
-                    <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/30 uppercase tracking-wider">Phonics, Writing, Vocabulary & Grammar</span>
+                    <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/30 uppercase tracking-wider">Conversation Lab Diperluaskan</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Master English Fluently</h2>
-                    <p class="text-slate-300 text-sm md:text-base">Pilih modul pembelajaran: Phonics & Writing Lab, Vocabulary (1-20), Conversation Lab, English Grammar Lab, Dictionary, atau Listen Mode!</p>
+                    <p class="text-slate-300 text-sm md:text-base">Kini dengan 10 Modul Conversation Lab untuk praktis bercakap English dalam pelbagai situasi harian!</p>
                 </div>
             </div>
 
             <!-- Menu Pilihan Utama -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- 1. Phonics & Writing Lab -->
                 <div onclick="openWritingLab()" class="bg-slate-900/80 border border-slate-800 hover:border-orange-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-pen-nib"></i>
@@ -87,7 +80,6 @@
                     <p class="text-slate-400 text-sm">Belajar sebutan abjad, panduan gurisan & kanvas interaktif menulis huruf.</p>
                 </div>
 
-                <!-- 2. Vocabulary Levels -->
                 <div onclick="showSection('levels')" class="bg-slate-900/80 border border-slate-800 hover:border-blue-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-graduation-cap"></i>
@@ -96,16 +88,14 @@
                     <p class="text-slate-400 text-sm">Kosa kata lengkap 20 tahap harian, frasa dan latihan kuiz interaktif.</p>
                 </div>
 
-                <!-- 3. Conversation Lab -->
                 <div onclick="openConversationMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-pink-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-comments"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-white">Conversation Lab</h3>
-                    <p class="text-slate-400 text-sm">Situasi perbualan harian: Restoran, Membeli-belah, Arah & Perkenalan.</p>
+                    <h3 class="font-bold text-lg text-white">Conversation Lab (10 Situasi)</h3>
+                    <p class="text-slate-400 text-sm">Praktis dialog harian: Kafe, Lapangan Terbang, Hotel, Temuduga & Kecemasan.</p>
                 </div>
 
-                <!-- 4. English Grammar Lab -->
                 <div onclick="openGrammarLabMenu()" class="bg-slate-900/80 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-book-atlas"></i>
@@ -114,7 +104,6 @@
                     <p class="text-slate-400 text-sm">Nota tatabahasa mudah: Tenses, Pronouns, Prepositions & Sentence Structure.</p>
                 </div>
 
-                <!-- 5. Words Dictionary -->
                 <div onclick="openWordsMode()" class="bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-list-ul"></i>
@@ -123,7 +112,6 @@
                     <p class="text-slate-400 text-sm">Cari senarai penuh kosa kata dan formula tatabahasa Inggeris.</p>
                 </div>
 
-                <!-- 6. Listen Mode -->
                 <div onclick="openListenMode()" class="bg-slate-900/80 border border-slate-800 hover:border-blue-400/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
                     <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-300 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-headphones"></i>
@@ -134,7 +122,7 @@
             </div>
         </section>
 
-        <!-- ================= LEVEL SELECT SECTION ================= -->
+        <!-- LEVEL SELECT SECTION -->
         <section id="section-levels" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
@@ -142,29 +130,27 @@
                     <p class="text-slate-400 text-sm">Pilih tahap kosa kata untuk mula belajar & kuiz</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>Kembali</span>
+                    <i class="fa-solid fa-arrow-left"></i><span>Kembali</span>
                 </button>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="levels-container"></div>
         </section>
 
-        <!-- ================= CONVERSATION LAB MENU SECTION ================= -->
+        <!-- CONVERSATION LAB MENU SECTION -->
         <section id="section-conversation" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
-                    <h2 class="text-2xl font-bold text-white">Conversation Lab (Situasi Perbualan)</h2>
-                    <p class="text-slate-400 text-sm">Pilih situasi perbualan harian Bahasa Inggeris</p>
+                    <h2 class="text-2xl font-bold text-white">Conversation Lab (10 Situasi Perbualan)</h2>
+                    <p class="text-slate-400 text-sm">Pilih situasi perbualan harian untuk praktis bercakap English</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>Kembali</span>
+                    <i class="fa-solid fa-arrow-left"></i><span>Kembali</span>
                 </button>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="conversation-container"></div>
         </section>
 
-        <!-- ================= GRAMMAR LAB MENU SECTION ================= -->
+        <!-- GRAMMAR LAB MENU SECTION -->
         <section id="section-grammar-lab" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
@@ -172,35 +158,31 @@
                     <p class="text-slate-400 text-sm">Pilih topik formula tatabahasa Inggeris</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>Kembali</span>
+                    <i class="fa-solid fa-arrow-left"></i><span>Kembali</span>
                 </button>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="grammar-lab-container"></div>
         </section>
 
-        <!-- ================= WRITING & PHONICS LAB SECTION ================= -->
+        <!-- WRITING & PHONICS LAB SECTION -->
         <section id="section-writing" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div>
-                    <span class="text-xs font-semibold text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/20">WRITING & PHONICS LAB</span>
+                    <span class="text-xs font-semibold text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/25">WRITING & PHONICS LAB</span>
                     <h2 class="text-2xl font-bold text-white">Belajar Menulis Huruf & Phonics</h2>
                     <p class="text-slate-400 text-sm">Ikut panduan gurisan dan praktis tulis di atas kanvas</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>Kembali</span>
+                    <i class="fa-solid fa-arrow-left"></i><span>Kembali</span>
                 </button>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Pilihan Huruf Untuk Ditulis -->
                 <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 space-y-4 shadow-xl md:col-span-1">
                     <h3 class="font-bold text-white text-sm uppercase tracking-wider text-orange-400">Pilih Abjad (A-Z)</h3>
                     <div class="grid grid-cols-5 gap-2 max-h-[380px] overflow-y-auto pr-2" id="writing-chars-grid"></div>
                 </div>
 
-                <!-- Paparan Kanvas Menulis & Panduan -->
                 <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl md:col-span-2 space-y-6 flex flex-col items-center">
                     <div class="w-full flex justify-between items-center">
                         <div>
@@ -212,14 +194,13 @@
                         </button>
                     </div>
 
-                    <!-- Kotak Panduan & Kanvas Lukis -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
                         <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col items-center justify-center text-center space-y-2">
                             <span class="text-xs font-bold text-slate-400">Panduan Gurisan (Stroke Order)</span>
                             <div class="w-36 h-36 bg-slate-900 border-2 border-slate-700 rounded-2xl stroke-box flex items-center justify-center relative">
                                 <span id="writing-guide-char" class="text-6xl font-black text-amber-400 opacity-80">A</span>
                             </div>
-                            <p id="writing-stroke-text" class="text-xs text-slate-300">1. Tarik garis ke atas dan kanan<br>2. Tarik garis ke bawah<br>3. Garis melintang di tengah</p>
+                            <p id="writing-stroke-text" class="text-xs text-slate-300">1. Tarik garis ke atas & kanan<br>2. Tarik garis ke bawah<br>3. Garis melintang di tengah</p>
                         </div>
 
                         <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 flex flex-col items-center justify-center text-center space-y-2">
@@ -233,7 +214,6 @@
                         </div>
                     </div>
 
-                    <!-- Navigasi Huruf Menulis -->
                     <div class="flex justify-between w-full pt-2">
                         <button onclick="navigateWriting(-1)" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold">Sebelum</button>
                         <span id="writing-progress" class="text-slate-400 text-sm font-bold flex items-center">1 / 26</span>
@@ -243,7 +223,7 @@
             </div>
         </section>
 
-        <!-- ================= STUDY SECTION ================= -->
+        <!-- STUDY SECTION -->
         <section id="section-study" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between border-b border-slate-800 pb-4">
                 <div class="flex items-center space-x-3">
@@ -251,7 +231,7 @@
                         <i class="fa-solid fa-chevron-left"></i>
                     </button>
                     <div>
-                        <span id="study-level-badge" class="text-xs font-semibold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">LEVEL 1</span>
+                        <span id="study-level-badge" class="text-xs font-semibold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/25">LEVEL 1</span>
                         <h2 id="study-level-title" class="text-xl font-bold text-white">Daily Vocabulary</h2>
                     </div>
                 </div>
@@ -301,7 +281,7 @@
             </div>
         </section>
 
-        <!-- ================= QUIZ SECTION ================= -->
+        <!-- QUIZ SECTION -->
         <section id="section-quiz" class="hidden space-y-6 transition-all duration-300">
             <div class="max-w-xl mx-auto space-y-2">
                 <div class="flex justify-between text-xs text-slate-400 font-bold">
@@ -329,7 +309,7 @@
             </div>
         </section>
 
-        <!-- ================= WORDS DICTIONARY SECTION ================= -->
+        <!-- WORDS DICTIONARY SECTION -->
         <section id="section-words" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
@@ -337,8 +317,7 @@
                     <p class="text-slate-400 text-sm">Cari dan semak semua perbendaharaan kata & tatabahasa Inggeris</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>Kembali</span>
+                    <i class="fa-solid fa-arrow-left"></i><span>Kembali</span>
                 </button>
             </div>
             <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
@@ -347,7 +326,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="words-grid"></div>
         </section>
 
-        <!-- ================= LISTEN MODE SECTION ================= -->
+        <!-- LISTEN MODE SECTION -->
         <section id="section-listen" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
@@ -355,23 +334,21 @@
                     <p class="text-slate-400 text-sm">Dengar sebutan perkataan Inggeris</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>Kembali</span>
+                    <i class="fa-solid fa-arrow-left"></i><span>Kembali</span>
                 </button>
             </div>
 
             <div class="max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl text-center space-y-6">
                 <div class="space-y-2">
-                    <span class="text-xs font-bold text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">Mod Dengar Audio</span>
+                    <span class="text-xs font-bold text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/25">Mod Dengar Audio</span>
                     <div id="listen-char" class="text-3xl font-black text-amber-400 py-4">Good Morning</div>
                     <div id="listen-romaji" class="text-lg font-bold text-blue-400">Selamat Pagi</div>
                     <p id="listen-desc" class="text-slate-400 text-sm">Ucapan rasmi waktu pagi</p>
                 </div>
 
                 <div class="flex justify-center pt-2">
-                    <button onclick="playListenAudio()" class="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold shadow-lg shadow-blue-600/30 transition flex items-center space-x-3 text-lg">
-                        <i class="fa-solid fa-volume-high text-2xl"></i>
-                        <span>Dengar Sebutan 🔊</span>
+                    <button onclick="playListenAudio()" class="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold shadow-lg shadow-blue-600/35 transition flex items-center space-x-3 text-lg">
+                        <i class="fa-solid fa-volume-high text-2xl"></i><span>Dengar Sebutan 🔊</span>
                     </button>
                 </div>
 
@@ -383,7 +360,7 @@
             </div>
         </section>
 
-        <!-- ================= RESULT SECTION ================= -->
+        <!-- RESULT SECTION -->
         <section id="section-result" class="hidden space-y-6 text-center transition-all duration-300">
             <div class="max-w-md mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl space-y-6">
                 <div class="w-20 h-20 mx-auto rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-4xl">
@@ -461,7 +438,6 @@
         let canvas, ctx;
         let isDrawing = false;
 
-        // Data 20 Level Lengkap
         const levelsData = [
             {
                 id: 1,
@@ -805,6 +781,7 @@
             }
         ];
 
+        // 10 KATEGORI CONVERSATION LAB YANG DIPERLUASKAN
         const conversationLabData = [
             {
                 id: 'cv-1',
@@ -835,7 +812,7 @@
             {
                 id: 'cv-3',
                 title: "3. Shopping & Asking Price (Membeli-belah)",
-                desc: "Tanya harga, saiz dan warna.",
+                desc: "Tanya harga, saiz dan warna barangan.",
                 items: [
                     { char: "How much is this?", rumi: "Berapa harga barang ini?", desc: "Harga" },
                     { char: "Do you have a smaller size?", rumi: "Ada saiz yang lebih kecil?", desc: "Saiz" },
@@ -854,6 +831,79 @@
                     { char: "Is it far from here?", rumi: "Adakah ia jauh dari sini?", desc: "Jarak" },
                     { char: "Turn left, then turn right.", rumi: "Belok kiri, kemudian belok kanan.", desc: "Arah" },
                     { char: "Thank you for your help.", rumi: "Terima kasih atas bantuan anda.", desc: "Terima kasih" }
+                ]
+            },
+            {
+                id: 'cv-5',
+                title: "5. At the Coffee Shop (Di Kafe)",
+                desc: "Memesan kopi, teh dan pastri.",
+                items: [
+                    { char: "I want a cup of hot coffee.", rumi: "Saya mahu segelas kopi panas.", desc: "Pesanan kopi" },
+                    { char: "Can I have less sugar?", rumi: "Boleh kurangkan gula?", desc: "Permintaan" },
+                    { char: "Is there any Wi-Fi here?", rumi: "Ada kemudahan Wi-Fi di sini?", desc: "Internet" },
+                    { char: "What is the Wi-Fi password?", rumi: "Apakah kata laluan Wi-Fi?", desc: "Password" },
+                    { char: "To take away or drink here?", rumi: "Bungkus atau minum di sini?", desc: "Soalan barista" },
+                    { char: "Drink here, please.", rumi: "Minum di sini, terima kasih.", desc: "Jawapan" }
+                ]
+            },
+            {
+                id: 'cv-6',
+                title: "6. At the Hotel (Di Hotel)",
+                desc: "Daftar masuk bilik dan bantuan kaunter.",
+                items: [
+                    { char: "I have a reservation under Ali.", rumi: "Saya ada tempahan atas nama Ali.", desc: "Daftar masuk" },
+                    { char: "What time is check-out?", rumi: "Pukul berapa waktu keluar bilik?", desc: "Masa" },
+                    { char: "Can I get a wake-up call?", rumi: "Boleh tolong kejutkan saya pagi esok?", desc: "Servis" },
+                    { char: "My room key is not working.", rumi: "Kunci bilik saya tidak berfungsi.", desc: "Masalah" },
+                    { char: "Please clean my room.", rumi: "Tolong kemas bilik saya.", desc: "Housekeeping" }
+                ]
+            },
+            {
+                id: 'cv-7',
+                title: "7. At the Airport (Di Lapangan Terbang)",
+                desc: "Pemeriksaan pasport, bagasi dan pesawat.",
+                items: [
+                    { char: "Where is the boarding gate?", rumi: "Di manakah pintu berlepas?", desc: "Gate" },
+                    { char: "Here is my passport and ticket.", rumi: "Ini pasport dan tiket saya.", desc: "Kaunter" },
+                    { char: "My baggage is missing.", rumi: "Bagasi saya hilang.", desc: "Masalah bagasi" },
+                    { char: "Is the flight delayed?", rumi: "Adakah penerbangan ditangguhkan?", desc: "Flight" },
+                    { char: "What time do we land?", rumi: "Pukul berapa kita akan mendarat?", desc: "Mendarat" }
+                ]
+            },
+            {
+                id: 'cv-8',
+                title: "8. Making Friends & Small Talk (Sembang Santai)",
+                desc: "Berbual kosong mengenai cuaca dan hobi.",
+                items: [
+                    { char: "What a nice weather today!", rumi: "Betapa cerahnya cuaca hari ini!", desc: "Cuaca" },
+                    { char: "What do you like to do in your free time?", rumi: "Apakah hobi anda pada masa lapang?", desc: "Hobi" },
+                    { char: "I love listening to music.", rumi: "Saya suka mendengar muzik.", desc: "Minat" },
+                    { char: "Do you have any pets?", rumi: "Adakah anda membela haiwan?", desc: "Haiwan" },
+                    { char: "Let us keep in touch.", rumi: "Mari kita terus berhubung.", desc: "Persahabatan" }
+                ]
+            },
+            {
+                id: 'cv-9',
+                title: "9. Job Interview Basics (Asas Temuduga Kerja)",
+                desc: "Soalan biasa semasa temu duga pekerjaan.",
+                items: [
+                    { char: "Tell me about yourself.", rumi: "Ceritakan tentang diri anda.", desc: "Soalan lazim" },
+                    { char: "What are your strengths?", rumi: "Apakah kekuatan anda?", desc: "Kekuatan" },
+                    { char: "Why do you want to work here?", rumi: "Kenapa anda mahu bekerja di sini?", desc: "Sebab" },
+                    { char: "I am hardworking and punctual.", rumi: "Saya seorang yang rajin dan tepat masa.", desc: "Kelebihan" },
+                    { char: "Do you have any questions?", rumi: "Ada apa-apa soalan?", desc: "Penutup" }
+                ]
+            },
+            {
+                id: 'cv-10',
+                title: "10. Emergency & Help (Kecemasan & Bantuan)",
+                desc: "Frasa penting sewaktu kecemasan atau kesusahan.",
+                items: [
+                    { char: "Help me, please!", rumi: "Tolong saya!", desc: "Bantuan" },
+                    { char: "Call an ambulance!", rumi: "Panggil ambulans!", desc: "Perubatan" },
+                    { char: "I have lost my wallet.", rumi: "Dompet saya hilang.", desc: "Kehilangan" },
+                    { char: "Where is the nearest police station?", rumi: "Di manakah balai polis terdekat?", desc: "Polis" },
+                    { char: "I feel sick. I need a doctor.", rumi: "Saya rasa sakit. Saya perlu doktor.", desc: "Sakit" }
                 ]
             }
         ];
@@ -1204,7 +1254,7 @@
             }
             options.sort(() => Math.random() - 0.5);
 
-            document.getElementById('quiz-instruction-label').innerText = "Apakah maksud bagi perkataan Inggeris ini?";
+            document.getElementById('quiz-instruction-label').innerText = "Apakah maksud bagi frasa ini?";
             options.forEach(opt => {
                 const btn = document.createElement('button');
                 btn.className = "py-3.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold border border-slate-700 transition text-xs md:text-sm shadow-md";
