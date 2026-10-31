@@ -64,9 +64,9 @@
             <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 border border-slate-800 p-8 md:p-12 text-center shadow-2xl">
                 <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl font-black select-none">ABC</div>
                 <div class="relative z-10 max-w-2xl mx-auto space-y-4">
-                    <span class="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/30 uppercase tracking-wider">Conversation Lab Diperluaskan</span>
+                    <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-semibold rounded-full border border-emerald-500/30 uppercase tracking-wider">Grammar Lab & Conversation Lengkap</span>
                     <h2 class="text-3xl md:text-5xl font-black tracking-tight text-white">Master English Fluently</h2>
-                    <p class="text-slate-300 text-sm md:text-base">Kini dengan 10 Modul Conversation Lab untuk praktis bercakap English dalam pelbagai situasi harian!</p>
+                    <p class="text-slate-300 text-sm md:text-base">Kini dikemas kini dengan nota English Grammar Lab yang lengkap untuk rujukan dan semakan pantas anda!</p>
                 </div>
             </div>
 
@@ -100,8 +100,8 @@
                     <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition">
                         <i class="fa-solid fa-book-atlas"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-white">English Grammar Lab</h3>
-                    <p class="text-slate-400 text-sm">Nota tatabahasa mudah: Tenses, Pronouns, Prepositions & Sentence Structure.</p>
+                    <h3 class="font-bold text-lg text-white">English Grammar Lab (Lengkap)</h3>
+                    <p class="text-slate-400 text-sm">Rujukan formula tatabahasa lengkap: Tenses, Modals, Prepositions & Soalan.</p>
                 </div>
 
                 <div onclick="openWordsMode()" class="bg-slate-900/80 border border-slate-800 hover:border-purple-500/50 rounded-2xl p-6 cursor-pointer transition transform hover:-translate-y-1 space-y-3 group shadow-xl">
@@ -154,8 +154,8 @@
         <section id="section-grammar-lab" class="hidden space-y-6 transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
-                    <h2 class="text-2xl font-bold text-white">English Grammar Lab</h2>
-                    <p class="text-slate-400 text-sm">Pilih topik formula tatabahasa Inggeris</p>
+                    <h2 class="text-2xl font-bold text-white">English Grammar Lab (Rujukan Pantas)</h2>
+                    <p class="text-slate-400 text-sm">Pilih topik formula tatabahasa untuk semakan penulisan & percakapan</p>
                 </div>
                 <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
                     <i class="fa-solid fa-arrow-left"></i><span>Kembali</span>
@@ -239,7 +239,6 @@
             </div>
 
             <div class="max-w-2xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-10 shadow-xl text-center space-y-8">
-                <!-- KOTAK SEGI EMPAT MELINTANG (LANDSCAPE BOX) -->
                 <div class="relative inline-block w-full">
                     <div class="w-full h-32 md:h-36 mx-auto bg-slate-950 border-2 border-slate-700 rounded-3xl stroke-box flex items-center justify-center shadow-inner relative overflow-hidden group p-4">
                         <span id="study-char" class="text-2xl md:text-4xl font-black text-amber-400 group-hover:scale-105 transition duration-300 text-center leading-snug">Apple</span>
@@ -258,8 +257,8 @@
 
                 <div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 text-left space-y-2">
                     <div class="flex items-center space-x-2 text-xs font-bold text-slate-400 uppercase tracking-wider">
-                        <i class="fa-solid fa-book-bookmark text-red-400"></i>
-                        <span>Contoh Ayat / Nota:</span>
+                        <i class="fa-solid fa-book-bookmark text-emerald-400"></i>
+                        <span>Formula / Contoh Semakan Tatabahasa:</span>
                     </div>
                     <p id="study-stroke" class="text-sm text-slate-300 whitespace-pre-line">Panduan terperinci.</p>
                 </div>
@@ -781,7 +780,6 @@
             }
         ];
 
-        // 10 KATEGORI CONVERSATION LAB YANG DIPERLUASKAN
         const conversationLabData = [
             {
                 id: 'cv-1',
@@ -908,38 +906,66 @@
             }
         ];
 
+        // ENGLISH GRAMMAR LAB YANG DIPERLUASKAN & LENGKAP UNTUK RUJUKAN
         const grammarLabData = [
             {
                 id: 'g1',
                 title: "1. Pronouns (Kata Ganti Nama)",
-                desc: "I, You, He, She, We, They.",
+                desc: "I, You, He, She, We, They dan bentuk kepunyaan.",
                 items: [
-                    { char: "I / Me / My", rumi: "Saya / Aku", desc: "Kata ganti diri pertama", stroke: "Formula: I (Subjek), Me (Objek), My (Kepunyaan)." },
-                    { char: "You / Your", rumi: "Awak / Kamu", desc: "Kata ganti diri kedua", stroke: "Formula: You (Subjek/Objek), Your (Kepunyaan)." },
-                    { char: "He / Him / His", rumi: "Dia (Lelaki)", desc: "Kata ganti diri ketiga lelaki", stroke: "Contoh: He is a doctor." },
-                    { char: "She / Her / Hers", rumi: "Dia (Perempuan)", desc: "Kata ganti diri ketiga wanita", stroke: "Contoh: She is reading a book." },
-                    { char: "They / Them", rumi: "Mereka", desc: "Kata ganti jamak", stroke: "Contoh: They are playing football." }
+                    { char: "Subject Pronouns", rumi: "I, You, He, She, It, We, They", desc: "Berfungsi sebagai pelaku (subjek di depan ayat)", stroke: "Formula: Subjek + Verb\nContoh: She is reading a book." },
+                    { char: "Object Pronouns", rumi: "Me, You, Him, Her, It, Us, Them", desc: "Berfungsi sebagai penerima perbuatan (di belakang ayat)", stroke: "Formula: Verb + Objek\nContoh: John helps me." },
+                    { char: "Possessive Adjectives", rumi: "My, Your, His, Her, Its, Our, Their", desc: "Menunjukkan hak kepunyaan sesuatu benda", stroke: "Formula: Kata sifat + Kata Nama\nContoh: This is my car." },
+                    { char: "Possessive Pronouns", rumi: "Mine, Yours, His, Hers, Ours, Theirs", desc: "Kata ganti kepunyaan mutlak", stroke: "Contoh: This book is mine." }
                 ]
             },
             {
                 id: 'g2',
-                title: "2. Verb 'To Be' (Am, Is, Are)",
-                desc: "Penggunaan kata pemeri asas.",
+                title: "2. Verb 'To Be' (Am, Is, Are, Was, Were)",
+                desc: "Kata pemeri masa kini dan masa lampau.",
                 items: [
-                    { char: "I am...", rumi: "Saya adalah...", desc: "Gandingan khas untuk 'I'", stroke: "Contoh: I am happy." },
-                    { char: "He / She / It is...", rumi: "Dia / Ini adalah...", desc: "Gandingan untuk kata nama tunggal", stroke: "Contoh: She is smart." },
-                    { char: "You / We / They are...", rumi: "Awak / Kami / Mereka adalah...", desc: "Gandingan untuk kata nama jamak", stroke: "Contoh: They are friends." },
-                    { char: "Was / Were (Past)", rumi: "Adalah (Masa lepas)", desc: "Bentuk lampau To Be", stroke: "Contoh: I was tired yesterday." }
+                    { char: "Present: Am / Is / Are", rumi: "Adalah (Masa Kini)", desc: "Am (I), Is (He/She/It), Are (You/We/They)", stroke: "Formula: Subjek + Am/Is/Are + Kata Sifat/Noun\nContoh: I am happy. They are smart." },
+                    { char: "Past: Was / Were", rumi: "Adalah (Masa Lampau)", desc: "Was (I/He/She/It), Were (You/We/They)", stroke: "Formula: Subjek + Was/Were + Keterangan\nContoh: She was tired yesterday." },
+                    { char: "Future: Will be", rumi: "Akan menjadi / berada", desc: "Digunakan untuk semua subjek bagi masa hadapan", stroke: "Formula: Subjek + will be + ...\nContoh: I will be there tomorrow." }
                 ]
             },
             {
                 id: 'g3',
-                title: "3. Simple Tenses (Masa Asas)",
-                desc: "Present, Past & Future Tense.",
+                title: "3. Simple Tenses (Masa Asas Bahasa Inggeris)",
+                desc: "Rujukan formula Present, Past & Future Tense.",
                 items: [
-                    { char: "Present Simple", rumi: "Masa Kini (Rutin)", desc: "Aktiviti harian / fakta", stroke: "Formula: Subject + Verb 1 (s/es).\nContoh: I eat apple every day." },
-                    { char: "Past Simple", rumi: "Masa Lampau (Dah lepas)", desc: "Perbuatan yang sudah berlaku", stroke: "Formula: Subject + Verb 2.\nContoh: I ate an apple yesterday." },
-                    { char: "Future Simple", rumi: "Masa Hadapan (Akan datang)", desc: "Perbuatan yang akan dilakukan", stroke: "Formula: Subject + will + Verb 1.\nContoh: I will eat an apple tomorrow." }
+                    { char: "Present Simple Tense", rumi: "Rutin Harian & Fakta Umum", desc: "Perbuatan yang kerap berlaku atau kebenaran", stroke: "Formula (+): Subject + Verb 1 (+ s/es untuk He/She/It)\nContoh: She works in a bank." },
+                    { char: "Past Simple Tense", rumi: "Perbuatan Lepas (Dah Berlaku)", desc: "Kejadian yang sudah selesai pada masa lampau", stroke: "Formula (+): Subject + Verb 2 (Past tense)\nContoh: They visited Melaka last week." },
+                    { char: "Future Simple Tense", rumi: "Perbuatan Akan Datang", desc: "Rancangan atau janji yang belum berlaku", stroke: "Formula (+): Subject + will + Verb 1\nContoh: We will start the meeting soon." }
+                ]
+            },
+            {
+                id: 'g4',
+                title: "4. Modals / Auxiliary Verbs (Kata Bantu)",
+                desc: "Can, Could, Must, Should, May.",
+                items: [
+                    { char: "Can / Could", rumi: "Boleh / Dapat (Kebolehan/Permintaan)", desc: "Menyatakan keupayaan atau meminta kebenaran", stroke: "Formula: Subject + can + Verb 1 (asal)\nContoh: I can speak English. Could you help me?" },
+                    { char: "Must / Have to", rumi: "Mesti / Wajib", desc: "Peraturan atau kewajipan yang tidak boleh dielakkan", stroke: "Formula: Subject + must + Verb 1\nContoh: You must wear a seatbelt." },
+                    { char: "Should", rumi: "Sepatutnya (Nasihat)", desc: "Memberi cadangan atau pandangan yang baik", stroke: "Formula: Subject + should + Verb 1\nContoh: You should see a doctor." }
+                ]
+            },
+            {
+                id: 'g5',
+                title: "5. Prepositions (Kata Sendi Nama Tempat & Masa)",
+                desc: "In, On, At untuk masa dan lokasi.",
+                items: [
+                    { char: "Preposition: AT", rumi: "Pada (Waktu tepat / Tempat spesifik)", desc: "Contoh masa: at 5 PM, at night. Tempat: at home, at school.", stroke: "Nota Semakan: Guna 'at' untuk titik masa dan lokasi khusus." },
+                    { char: "Preposition: ON", rumi: "Pada (Hari / Tarikh / Permukaan)", desc: "Contoh masa: on Monday, on May 5th. Tempat: on the table.", stroke: "Nota Semakan: Guna 'on' untuk hari, tarikh dan atas permukaan rata." },
+                    { char: "Preposition: IN", rumi: "Dalam / Pada (Bulan / Tahun / Ruang tertutup)", desc: "Contoh masa: in 2026, in January. Tempat: in Malaysia, in the room.", stroke: "Nota Semakan: Guna 'in' untuk ruang besar, bulan, tahun atau musim." }
+                ]
+            },
+            {
+                id: 'g6',
+                title: "6. Question Words (Kata Tanya 5W1H)",
+                desc: "Who, What, Where, When, Why, How.",
+                items: [
+                    { char: "Who / What / Where", rumi: "Siapa / Apa / Di mana", desc: "Bertanya tentang orang, benda atau tempat", stroke: "Contoh: Who is he? What is this? Where do you live?" },
+                    { char: "When / Why / How", rumi: "Bila / Kenapa / Bagaimana", desc: "Bertanya tentang masa, sebab atau cara", stroke: "Contoh: When will you leave? Why are you late? How do you do this?" }
                 ]
             }
         ];
@@ -1044,7 +1070,7 @@
                         <p class="text-slate-400 text-sm">${g.desc}</p>
                     </div>
                     <button onclick="startGrammarLab('${g.id}')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition flex items-center justify-center space-x-2">
-                        <span>Buka Makmal Tatabahasa</span>
+                        <span>Buka Nota Tatabahasa</span>
                         <i class="fa-solid fa-arrow-right text-xs"></i>
                     </button>
                 `;
@@ -1187,11 +1213,11 @@
             const charEl = document.getElementById('study-char');
             let emojiDisplay = visualEmojiMap[item.char] ? `<span class="text-3xl mr-2">${visualEmojiMap[item.char]}</span>` : '';
             charEl.innerHTML = `${emojiDisplay} ${item.char}`;
-            charEl.className = item.char.length > 12 ? "text-xl md:text-2xl font-black text-amber-400 text-center" : "text-2xl md:text-3xl font-black text-amber-400 text-center flex items-center justify-center flex-wrap";
+            charEl.className = item.char.length > 18 ? "text-lg md:text-xl font-black text-amber-400 text-center" : "text-2xl md:text-3xl font-black text-amber-400 text-center flex items-center justify-center flex-wrap";
 
             document.getElementById('study-romaji').innerText = item.rumi;
             document.getElementById('study-desc').innerText = item.desc;
-            document.getElementById('study-stroke').innerText = item.stroke || 'Nota pembelajaran Bahasa Inggeris.';
+            document.getElementById('study-stroke').innerText = item.stroke || 'Nota tatabahasa rujukan pantas.';
 
             document.getElementById('btn-prev-char').disabled = (currentStudyIndex === 0);
             document.getElementById('btn-next-char').style.display = (currentStudyIndex === currentLevelObj.items.length - 1) ? 'none' : 'inline-flex';
@@ -1254,7 +1280,7 @@
             }
             options.sort(() => Math.random() - 0.5);
 
-            document.getElementById('quiz-instruction-label').innerText = "Apakah maksud bagi frasa ini?";
+            document.getElementById('quiz-instruction-label').innerText = "Apakah maksud bagi nota/frasa ini?";
             options.forEach(opt => {
                 const btn = document.createElement('button');
                 btn.className = "py-3.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold border border-slate-700 transition text-xs md:text-sm shadow-md";
