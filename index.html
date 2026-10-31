@@ -288,4 +288,1037 @@
                     <button id="btn-prev-char" onclick="navigateStudy(-1)" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold text-sm transition">
                         <i class="fa-solid fa-arrow-left mr-1"></i> Sebelum
                     </button>
-                    <button id="btn-next-char" onclick="navigateStudy(1)" class="px-5 p
+                    <button id="btn-next-char" onclick="navigateStudy(1)" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition">
+                        Seterusnya <i class="fa-solid fa-arrow-right ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="text-center pt-4">
+                <button onclick="startQuizForCurrentModule()" class="px-8 py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold rounded-2xl shadow-lg transition">
+                    <i class="fa-solid fa-pen-to-square mr-2"></i> Mula Practice (Kuiz) Modul Ini
+                </button>
+            </div>
+        </section>
+
+        <!-- ================= QUIZ SECTION ================= -->
+        <section id="section-quiz" class="hidden space-y-6 transition-all duration-300">
+            <div class="max-w-xl mx-auto space-y-2">
+                <div class="flex justify-between text-xs text-slate-400 font-bold">
+                    <span id="quiz-title-mode">PRACTICE KUIZ</span>
+                    <span id="quiz-progress-text">1 / 10</span>
+                </div>
+                <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                    <div id="quiz-progress-bar" class="bg-gradient-to-r from-blue-500 to-emerald-400 h-full w-0 transition-all duration-300"></div>
+                </div>
+            </div>
+
+            <div class="max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl text-center space-y-6">
+                <div class="space-y-1 relative">
+                    <span id="quiz-instruction-label" class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Apakah maksud perkataan ini?</span>
+                    <div class="flex items-center justify-center space-x-3 pt-2">
+                        <div id="quiz-char-display" class="text-2xl md:text-3xl font-black text-amber-400">Apple</div>
+                        <button onclick="playQuizAudio()" class="w-10 h-10 bg-blue-600 hover:bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg transition" title="Dengar Audio">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quiz-options-grid" class="grid grid-cols-2 gap-3"></div>
+                <div id="quiz-feedback" class="hidden p-3 rounded-xl text-center text-sm font-bold"></div>
+            </div>
+        </section>
+
+        <!-- ================= WORDS DICTIONARY SECTION ================= -->
+        <section id="section-words" class="hidden space-y-6 transition-all duration-300">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-white">Dictionary Index (Words)</h2>
+                    <p class="text-slate-400 text-sm">Cari dan semak semua perbendaharaan kata & tatabahasa Inggeris</p>
+                </div>
+                <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Kembali</span>
+                </button>
+            </div>
+            <div class="bg-slate-900 border border-slate-800 p-4 rounded-2xl">
+                <input type="text" id="word-search" oninput="filterWords()" placeholder="Cari perkataan Inggeris atau maksud..." class="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500">
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="words-grid"></div>
+        </section>
+
+        <!-- ================= LISTEN MODE SECTION ================= -->
+        <section id="section-listen" class="hidden space-y-6 transition-all duration-300">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-white">Listen Mode (Latihan Mendengar Audio)</h2>
+                    <p class="text-slate-400 text-sm">Dengar sebutan perkataan Inggeris</p>
+                </div>
+                <button onclick="showSection('home')" class="text-slate-400 hover:text-white text-sm flex items-center space-x-1">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Kembali</span>
+                </button>
+            </div>
+
+            <div class="max-w-xl mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl text-center space-y-6">
+                <div class="space-y-2">
+                    <span class="text-xs font-bold text-purple-400 bg-purple-500/10 px-3 py-1 rounded-full border border-purple-500/20">Mod Dengar Audio</span>
+                    <div id="listen-char" class="text-3xl font-black text-amber-400 py-4">Good Morning</div>
+                    <div id="listen-romaji" class="text-lg font-bold text-blue-400">Selamat Pagi</div>
+                    <p id="listen-desc" class="text-slate-400 text-sm">Ucapan rasmi waktu pagi</p>
+                </div>
+
+                <div class="flex justify-center pt-2">
+                    <button onclick="playListenAudio()" class="px-8 py-4 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold shadow-lg shadow-blue-600/30 transition flex items-center space-x-3 text-lg">
+                        <i class="fa-solid fa-volume-high text-2xl"></i>
+                        <span>Dengar Sebutan 🔊</span>
+                    </button>
+                </div>
+
+                <div class="flex justify-between pt-6 border-t border-slate-800">
+                    <button onclick="navigateListen(-1)" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold">Sebelum</button>
+                    <span id="listen-progress" class="text-slate-400 text-sm font-bold flex items-center">1 / 300</span>
+                    <button onclick="navigateListen(1)" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold">Seterusnya</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= RESULT SECTION ================= -->
+        <section id="section-result" class="hidden space-y-6 text-center transition-all duration-300">
+            <div class="max-w-md mx-auto bg-slate-900 border border-slate-800 rounded-3xl p-8 shadow-2xl space-y-6">
+                <div class="w-20 h-20 mx-auto rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-4xl">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <div class="space-y-1">
+                    <h2 class="text-2xl font-bold text-white">Tahniah Selesai Practice!</h2>
+                    <p class="text-slate-400 text-sm">Prestasi latihan anda telah direkodkan.</p>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 flex justify-around">
+                    <div>
+                        <div class="text-xs text-slate-400">Markah</div>
+                        <div id="result-score" class="text-2xl font-black text-emerald-400">80%</div>
+                    </div>
+                    <div class="h-8 w-px bg-slate-800"></div>
+                    <div>
+                        <div class="text-xs text-slate-400">Mata</div>
+                        <div id="result-points" class="text-2xl font-black text-amber-400">+50</div>
+                    </div>
+                </div>
+                <button onclick="showSection('home'); renderLevelCards();" class="w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition">
+                    Kembali Ke Menu Utama
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-6 bg-slate-900/50 text-center text-slate-500 text-xs">
+        <p>English Master Ultimate Edition &copy; 2026 - Semua Hak Cipta Terpelihara</p>
+    </footer>
+
+    <!-- JavaScript Platform -->
+    <script>
+        const visualEmojiMap = {
+            "Apple": "🍎", "Cat": "🐱", "Water": "💧", "Coffee": "☕", "House": "🏠", "Book": "📚",
+            "Dog": "🐶", "Bird": "🐦", "Money": "💵", "Moon": "🌙", "Star": "⭐", "Flower": "🌸",
+            "Mountain": "⛰️", "River": "🌊", "Beach": "🏖️", "Friend": "🧑‍🤝‍🧑", "Milk": "🥛",
+            "Doctor": "👨‍⚕️", "Banana": "🍌", "Tomato": "🍅", "Camera": "📷", "Bus": "🚌",
+            "Taxi": "🚕", "Train": "🚂", "Shoes": "👞", "Soap": "🧼", "Butterfly": "🦋",
+            "Tissue": "🧻", "Mirror": "🪞", "Juice": "🧃", "Lion": "🦁", "Tiger": "🐅", "Tree": "🌳"
+        };
+
+        const writingData = [
+            { char: "A", rumi: "/eɪ/", type: "Letter A", stroke: "1. Garis serong ke atas & kanan\n2. Garis serong ke bawah\n3. Melintang di tengah" },
+            { char: "B", rumi: "/biː/", type: "Letter B", stroke: "1. Garis tegak ke bawah\n2. Lengkok atas\n3. Lengkok bawah" },
+            { char: "C", rumi: "/siː/", type: "Letter C", stroke: "1. Lengkok separuh bulatan ke kiri" },
+            { char: "D", rumi: "/diː/", type: "Letter D", stroke: "1. Garis tegak ke bawah\n2. Lengkok besar dari atas ke bawah" },
+            { char: "E", rumi: "/iː/", type: "Letter E", stroke: "1. Garis tegak ke bawah\n2. Tiga garis melintang (atas, tengah, bawah)" },
+            { char: "F", rumi: "/ɛf/", type: "Letter F", stroke: "1. Garis tegak ke bawah\n2. Melintang atas\n3. Melintang tengah" },
+            { char: "G", rumi: "/dʒiː/", type: "Letter G", stroke: "1. Lengkok seperti C\n2. Masuk ke dalam & melintang" },
+            { char: "H", rumi: "/eɪtʃ/", type: "Letter H", stroke: "1. Dua garis tegak selari\n2. Melintang di tengah" },
+            { char: "I", rumi: "/aɪ/", type: "Letter I", stroke: "1. Garis tegak lurus ke bawah" },
+            { char: "J", rumi: "/dʒeɪ/", type: "Letter J", stroke: "1. Garis tegak & melengkung ke atas di bawah" },
+            { char: "K", rumi: "/keɪ/", type: "Letter K", stroke: "1. Garis tegak ke bawah\n2. Serong ke atas\n3. Serong ke bawah" },
+            { char: "L", rumi: "/ɛl/", type: "Letter L", stroke: "1. Garis tegak ke bawah\n2. Melintang ke kanan di bawah" },
+            { char: "M", rumi: "/ɛm/", type: "Letter M", stroke: "1. Tegak ke atas/bawah dua kali\n2. Bentuk puncak gunung" },
+            { char: "N", rumi: "/ɛn/", type: "Letter N", stroke: "1. Tegak ke bawah\n2. Serong ke kanan\n3. Tegak ke atas" },
+            { char: "O", rumi: "/oʊ/", type: "Letter O", stroke: "1. Bulatan penuh" },
+            { char: "P", rumi: "/piː/", type: "Letter P", stroke: "1. Garis tegak ke bawah\n2. Lengkok separuh di atas" },
+            { char: "Q", rumi: "/kjuː/", type: "Letter Q", stroke: "1. Bulatan penuh\n2. Garis serong kecil di bawah" },
+            { char: "R", rumi: "/ɑːr/", type: "Letter R", stroke: "1. Garis tegak\n2. Lengkok atas\n3. Garis serong ke bawah" },
+            { char: "S", rumi: "/ɛs/", type: "Letter S", stroke: "1. Melengkung S bersambung" },
+            { char: "T", rumi: "/tiː/", type: "Letter T", stroke: "1. Melintang di atas\n2. Tegak ke bawah di tengah" },
+            { char: "U", rumi: "/juː/", type: "Letter U", stroke: "1. Turun ke bawah, melengkung naik ke atas" },
+            { char: "V", rumi: "/viː/", type: "Letter V", stroke: "1. Serong ke bawah\n2. Serong ke atas" },
+            { char: "W", rumi: "/ˈdʌbəl.juː/", type: "Letter W", stroke: "1. Dua huruf V bergabung" },
+            { char: "X", rumi: "/ɛks/", type: "Letter X", stroke: "1. Garis silang pangkah" },
+            { char: "Y", rumi: "/waɪ/", type: "Letter Y", stroke: "1. Dua garis serong bercantas\n2. Tegak ke bawah" },
+            { char: "Z", rumi: "/zɛd/", type: "Letter Z", stroke: "1. Melintang atas\n2. Serong ke kiri\n3. Melintang bawah" }
+        ];
+
+        let currentWritingIndex = 0;
+        let canvas, ctx;
+        let isDrawing = false;
+
+        // Data 20 Level Lengkap
+        const levelsData = [
+            {
+                id: 1,
+                title: "Level 1: Daily Greetings & Basics",
+                desc: "Ucapan harian dan perbualan asas.",
+                items: [
+                    { char: "Good morning", rumi: "Selamat Pagi", desc: "Ucapan awal pagi", stroke: "Greeting" },
+                    { char: "Good afternoon", rumi: "Selamat Petang", desc: "Ucapan tengah hari/petang", stroke: "Greeting" },
+                    { char: "Good evening", rumi: "Selamat Malam", desc: "Ucapan waktu senja/malam", stroke: "Greeting" },
+                    { char: "Hello / Hi", rumi: "Helo / Hai", desc: "Sapaan mesra", stroke: "Greeting" },
+                    { char: "Thank you", rumi: "Terima kasih", desc: "Penghargaan", stroke: "Polite" },
+                    { char: "You're welcome", rumi: "Sama-sama", desc: "Balasan terima kasih", stroke: "Polite" },
+                    { char: "Please", rumi: "Tolong / Silakan", desc: "Permintaan sopan", stroke: "Polite" },
+                    { char: "I'm sorry", rumi: "Minta maaf", desc: "Memohon maaf", stroke: "Polite" },
+                    { char: "Excuse me", rumi: "Tumpang tanya", desc: "Mendapat perhatian", stroke: "Polite" },
+                    { char: "Goodbye", rumi: "Selamat tinggal", desc: "Perpisahan", stroke: "Greeting" }
+                ]
+            },
+            {
+                id: 2,
+                title: "Level 2: Family & People",
+                desc: "Ahli keluarga dan perhubungan.",
+                items: [
+                    { char: "Father", rumi: "Bapa / Ayah", desc: "Keluarga", stroke: "Family" },
+                    { char: "Mother", rumi: "Ibu / Mak", desc: "Keluarga", stroke: "Family" },
+                    { char: "Brother", rumi: "Abang / Adik lelaki", desc: "Keluarga", stroke: "Family" },
+                    { char: "Sister", rumi: "Kakak / Adik perempuan", desc: "Keluarga", stroke: "Family" },
+                    { char: "Grandfather", rumi: "Datuk", desc: "Keluarga", stroke: "Family" },
+                    { char: "Grandmother", rumi: "Nenek", desc: "Keluarga", stroke: "Family" },
+                    { char: "Friend", rumi: "Kawan / Sahabat", desc: "Sosial", stroke: "Social" },
+                    { char: "Teacher", rumi: "Cikgu / Guru", desc: "Pendidikan", stroke: "Job" },
+                    { char: "Doctor", rumi: "Doktor", desc: "Kesihatan", stroke: "Job" },
+                    { char: "Police", rumi: "Polis", desc: "Keselamatan", stroke: "Job" }
+                ]
+            },
+            {
+                id: 3,
+                title: "Level 3: Food & Drinks",
+                desc: "Makanan dan minuman harian.",
+                items: [
+                    { char: "Apple", rumi: "Epal", desc: "Buah-buahan", stroke: "Food" },
+                    { char: "Banana", rumi: "Pisang", desc: "Buah-buahan", stroke: "Food" },
+                    { char: "Water", rumi: "Air kosong", desc: "Minuman", stroke: "Drink" },
+                    { char: "Coffee", rumi: "Kopi", desc: "Minuman", stroke: "Drink" },
+                    { char: "Tea", rumi: "Teh", desc: "Minuman", stroke: "Drink" },
+                    { char: "Milk", rumi: "Susu", desc: "Minuman", stroke: "Drink" },
+                    { char: "Bread", rumi: "Roti", desc: "Makanan", stroke: "Food" },
+                    { char: "Rice", rumi: "Nasi", desc: "Makanan", stroke: "Food" },
+                    { char: "Egg", rumi: "Telur", desc: "Makanan", stroke: "Food" },
+                    { char: "Chicken", rumi: "Ayam", desc: "Makanan", stroke: "Food" }
+                ]
+            },
+            {
+                id: 4,
+                title: "Level 4: House & Rooms",
+                desc: "Bahagian rumah dan perabot.",
+                items: [
+                    { char: "House", rumi: "Rumah", desc: "Bangunan", stroke: "Place" },
+                    { char: "Room", rumi: "Bilik", desc: "Bahagian rumah", stroke: "Room" },
+                    { char: "Kitchen", rumi: "Dapur", desc: "Tempat memasak", stroke: "Room" },
+                    { char: "Bedroom", rumi: "Bilik tidur", desc: "Tempat tidur", stroke: "Room" },
+                    { char: "Bathroom", rumi: "Bilik air / Tandas", desc: "Tempat mandi", stroke: "Room" },
+                    { char: "Door", rumi: "Pintu", desc: "Alatan rumah", stroke: "Item" },
+                    { char: "Window", rumi: "Tetingkap / Tingkap", desc: "Alatan rumah", stroke: "Item" },
+                    { char: "Table", rumi: "Meja", desc: "Perabot", stroke: "Furniture" },
+                    { char: "Chair", rumi: "Kerusi", desc: "Perabot", stroke: "Furniture" },
+                    { char: "Bed", rumi: "Katil", desc: "Perabot", stroke: "Furniture" }
+                ]
+            },
+            {
+                id: 5,
+                title: "Level 5: Numbers & Time",
+                desc: "Nombor, hari dan masa.",
+                items: [
+                    { char: "One, Two, Three", rumi: "Satu, Dua, Tiga", desc: "Nombor asas", stroke: "Number" },
+                    { char: "Four, Five, Six", rumi: "Empat, Lima, Enam", desc: "Nombor asas", stroke: "Number" },
+                    { char: "Seven, Eight, Nine", rumi: "Tujuh, Lapan, Sembilan", desc: "Nombor asas", stroke: "Number" },
+                    { char: "Ten", rumi: "Sepuluh", desc: "Nombor asas", stroke: "Number" },
+                    { char: "Monday", rumi: "Isnin", desc: "Hari", stroke: "Day" },
+                    { char: "Tuesday", rumi: "Selasa", desc: "Hari", stroke: "Day" },
+                    { char: "Wednesday", rumi: "Rabu", desc: "Hari", stroke: "Day" },
+                    { char: "Thursday", rumi: "Khamis", desc: "Hari", stroke: "Day" },
+                    { char: "Friday", rumi: "Jumaat", desc: "Hari", stroke: "Day" },
+                    { char: "Saturday", rumi: "Sabtu", desc: "Hari", stroke: "Day" }
+                ]
+            },
+            {
+                id: 6,
+                title: "Level 6: Animals & Nature",
+                desc: "Haiwan dan alam semulajadi.",
+                items: [
+                    { char: "Cat", rumi: "Kucing", desc: "Haiwan", stroke: "Animal" },
+                    { char: "Dog", rumi: "Anjing", desc: "Haiwan", stroke: "Animal" },
+                    { char: "Bird", rumi: "Burung", desc: "Haiwan", stroke: "Animal" },
+                    { char: "Lion", rumi: "Singa", desc: "Haiwan liar", stroke: "Animal" },
+                    { char: "Tiger", rumi: "Harimau", desc: "Haiwan liar", stroke: "Animal" },
+                    { char: "Tree", rumi: "Pokok", desc: "Alam", stroke: "Nature" },
+                    { char: "Mountain", rumi: "Gunung", desc: "Alam", stroke: "Nature" },
+                    { char: "River", rumi: "Sungai", desc: "Alam", stroke: "Nature" },
+                    { char: "Moon", rumi: "Bulan", desc: "Angkasa", stroke: "Nature" },
+                    { char: "Star", rumi: "Bintang", desc: "Angkasa", stroke: "Nature" }
+                ]
+            },
+            {
+                id: 7,
+                title: "Level 7: Colors & Clothes",
+                desc: "Warna asas dan pakaian.",
+                items: [
+                    { char: "Red", rumi: "Merah", desc: "Warna", stroke: "Color" },
+                    { char: "Blue", rumi: "Biru", desc: "Warna", stroke: "Color" },
+                    { char: "Green", rumi: "Hijau", desc: "Warna", stroke: "Color" },
+                    { char: "Yellow", rumi: "Kuning", desc: "Warna", stroke: "Color" },
+                    { char: "Black", rumi: "Hitam", desc: "Warna", stroke: "Color" },
+                    { char: "White", rumi: "Putih", desc: "Warna", stroke: "Color" },
+                    { char: "Shirt", rumi: "Baju", desc: "Pakaian", stroke: "Clothing" },
+                    { char: "Pants", rumi: "Seluar", desc: "Pakaian", stroke: "Clothing" },
+                    { char: "Shoes", rumi: "Kasut", desc: "Pakaian", stroke: "Clothing" },
+                    { char: "Hat", rumi: "Topi", desc: "Pakaian", stroke: "Clothing" }
+                ]
+            },
+            {
+                id: 8,
+                title: "Level 8: Transport & Travel",
+                desc: "Kenderaan dan percutian.",
+                items: [
+                    { char: "Car", rumi: "Kereta", desc: "Kenderaan", stroke: "Transport" },
+                    { char: "Bus", rumi: "Bas", desc: "Kenderaan awam", stroke: "Transport" },
+                    { char: "Taxi", rumi: "Teksi", desc: "Kenderaan", stroke: "Transport" },
+                    { char: "Train", rumi: "Kereta api", desc: "Kenderaan awam", stroke: "Transport" },
+                    { char: "Plane", rumi: "Kapal terbang", desc: "Pengangkutan udara", stroke: "Transport" },
+                    { char: "Ship", rumi: "Kapal laut", desc: "Pengangkutan air", stroke: "Transport" },
+                    { char: "Road", rumi: "Jalan raya", desc: "Infrastruktur", stroke: "Travel" },
+                    { char: "Ticket", rumi: "Tiket", desc: "Perjalanan", stroke: "Travel" },
+                    { char: "Hotel", rumi: "Hotel", desc: "Penginapan", stroke: "Travel" },
+                    { char: "Airport", rumi: "Lapangan terbang", desc: "Stesen", stroke: "Travel" }
+                ]
+            },
+            {
+                id: 9,
+                title: "Level 9: Emotions & Feelings",
+                desc: "Perasaan dan emosi manusia.",
+                items: [
+                    { char: "Happy", rumi: "Gembira", desc: "Emosi positif", stroke: "Emotion" },
+                    { char: "Sad", rumi: "Sedih", desc: "Emosi negatif", stroke: "Emotion" },
+                    { char: "Angry", rumi: "Marah", desc: "Emosi", stroke: "Emotion" },
+                    { char: "Tired", rumi: "Penat / Letih", desc: "Fizikal", stroke: "Feeling" },
+                    { char: "Hungry", rumi: "Lapar", desc: "Fizikal", stroke: "Feeling" },
+                    { char: "Thirsty", rumi: "Haus", desc: "Fizikal", stroke: "Feeling" },
+                    { char: "Excited", rumi: "Teruja", desc: "Emosi positif", stroke: "Emotion" },
+                    { char: "Scared", rumi: "Takut", desc: "Emosi", stroke: "Emotion" },
+                    { char: "Surprised", rumi: "Terkejut", desc: "Emosi", stroke: "Emotion" },
+                    { char: "Sleepy", rumi: "Mengantuk", desc: "Fizikal", stroke: "Feeling" }
+                ]
+            },
+            {
+                id: 10,
+                title: "Level 10: Actions & Verbs",
+                desc: "Perbuatan harian asas.",
+                items: [
+                    { char: "Eat", rumi: "Makan", desc: "Perbuatan", stroke: "Verb" },
+                    { char: "Drink", rumi: "Minum", desc: "Perbuatan", stroke: "Verb" },
+                    { char: "Sleep", rumi: "Tidur", desc: "Perbuatan", stroke: "Verb" },
+                    { char: "Walk", rumi: "Berjalan", desc: "Perbuatan", stroke: "Verb" },
+                    { char: "Run", rumi: "Berlari", desc: "Perbuatan", stroke: "Verb" },
+                    { char: "Read", rumi: "Baca", desc: "Perbuatan", stroke: "Verb" },
+                    { char: "Write", rumi: "Tulis", desc: "Perbuatan", stroke: "Verb" },
+                    { char: "Listen", rumi: "Dengar", desc: "Perbuatan", stroke: "Verb" },
+                    { char: "Speak", rumi: "Bercakap", desc: "Perbuatan", stroke: "Verb" },
+                    { char: "Look", rumi: "Tengok / Lihat", desc: "Perbuatan", stroke: "Verb" }
+                ]
+            },
+            {
+                id: 11,
+                title: "Level 11: School & Office",
+                desc: "Peralatan sekolah dan pejabat.",
+                items: [
+                    { char: "Book", rumi: "Buku", desc: "Sekolah", stroke: "School" },
+                    { char: "Pen", rumi: "Pen / Penulis", desc: "Alat tulis", stroke: "School" },
+                    { char: "Pencil", rumi: "Pensel", desc: "Alat tulis", stroke: "School" },
+                    { char: "Paper", rumi: "Kertas", desc: "Pejabat", stroke: "Office" },
+                    { char: "Desk", rumi: "Meja tulis", desc: "Perabot", stroke: "Office" },
+                    { char: "Bag", rumi: "Beg", desc: "Barangan", stroke: "School" },
+                    { char: "Classroom", rumi: "Bilik darjah", desc: "Sekolah", stroke: "School" },
+                    { char: "Test", rumi: "Ujian / Kuiz", desc: "Akademik", stroke: "School" },
+                    { char: "Computer", rumi: "Komputer", desc: "Pejabat", stroke: "Office" },
+                    { char: "Clock", rumi: "Jam", desc: "Alatan", stroke: "Office" }
+                ]
+            },
+            {
+                id: 12,
+                title: "Level 12: Health & Body",
+                desc: "Anggota badan dan kesihatan.",
+                items: [
+                    { char: "Head", rumi: "Kepala", desc: "Badan", stroke: "Body" },
+                    { char: "Eye", rumi: "Mata", desc: "Badan", stroke: "Body" },
+                    { char: "Ear", rumi: "Telinga", desc: "Badan", stroke: "Body" },
+                    { char: "Mouth", rumi: "Mulut", desc: "Badan", stroke: "Body" },
+                    { char: "Hand", rumi: "Tangan", desc: "Badan", stroke: "Body" },
+                    { char: "Foot", rumi: "Kaki", desc: "Badan", stroke: "Body" },
+                    { char: "Heart", rumi: "Jantung / Hati", desc: "Organ", stroke: "Body" },
+                    { char: "Sick", rumi: "Sakit", desc: "Kesihatan", stroke: "Health" },
+                    { char: "Medicine", rumi: "Ubat", desc: "Kesihatan", stroke: "Health" },
+                    { char: "Hospital", rumi: "Hospital", desc: "Kesihatan", stroke: "Health" }
+                ]
+            },
+            {
+                id: 13,
+                title: "Level 13: Weather & Seasons",
+                desc: "Cuaca dan musim.",
+                items: [
+                    { char: "Sun", rumi: "Matahari", desc: "Cuaca", stroke: "Weather" },
+                    { char: "Rain", rumi: "Hujan", desc: "Cuaca", stroke: "Weather" },
+                    { char: "Wind", rumi: "Angin", desc: "Cuaca", stroke: "Weather" },
+                    { char: "Cloud", rumi: "Awan", desc: "Cuaca", stroke: "Weather" },
+                    { char: "Hot", rumi: "Panas", desc: "Suhu", stroke: "Weather" },
+                    { char: "Cold", rumi: "Sejuk", desc: "Suhu", stroke: "Weather" },
+                    { char: "Snow", rumi: "Salji", desc: "Musim", stroke: "Season" },
+                    { char: "Summer", rumi: "Musim panas", desc: "Musim", stroke: "Season" },
+                    { char: "Winter", rumi: "Musim sejuk", desc: "Musim", stroke: "Season" },
+                    { char: "Storm", rumi: "Ribut", desc: "Cuaca", stroke: "Weather" }
+                ]
+            },
+            {
+                id: 14,
+                title: "Level 14: Jobs & Occupations",
+                desc: "Kerjaya dan pekerjaan.",
+                items: [
+                    { char: "Engineer", rumi: "Jurutera", desc: "Kerjaya", stroke: "Job" },
+                    { char: "Artist", rumi: "Artis / Pelukis", desc: "Kerjaya", stroke: "Job" },
+                    { char: "Chef", rumi: "Tukang masak", desc: "Kerjaya", stroke: "Job" },
+                    { char: "Driver", rumi: "Pemandu", desc: "Kerjaya", stroke: "Job" },
+                    { char: "Nurse", rumi: "Jururawat", desc: "Kesihatan", stroke: "Job" },
+                    { char: "Farmer", rumi: "Petani", desc: "Kerjaya", stroke: "Job" },
+                    { char: "Singer", rumi: "Penyanyi", desc: "Seni", stroke: "Job" },
+                    { char: "Writer", rumi: "Penulis", desc: "Sastera", stroke: "Job" },
+                    { char: "Scientist", rumi: "Saintis", desc: "Sains", stroke: "Job" },
+                    { char: "Pilot", rumi: "Juruterbang", desc: "Penerbangan", stroke: "Job" }
+                ]
+            },
+            {
+                id: 15,
+                title: "Level 15: Shopping & Money",
+                desc: "Kewangan dan jual beli.",
+                items: [
+                    { char: "Money", rumi: "Duit / Wang", desc: "Kewangan", stroke: "Money" },
+                    { char: "Price", rumi: "Harga", desc: "Belian", stroke: "Shopping" },
+                    { char: "Cheap", rumi: "Murah", desc: "Sifat harga", stroke: "Shopping" },
+                    { char: "Expensive", rumi: "Mahal", desc: "Sifat harga", stroke: "Shopping" },
+                    { char: "Bank", rumi: "Bank", desc: "Kewangan", stroke: "Money" },
+                    { char: "Card", rumi: "Kad", desc: "Bayaran", stroke: "Money" },
+                    { char: "Market", rumi: "Pasar", desc: "Tempat", stroke: "Shopping" },
+                    { char: "Store", rumi: "Kedai", desc: "Tempat", stroke: "Shopping" },
+                    { char: "Sell", rumi: "Jual", desc: "Perniagaan", stroke: "Business" },
+                    { char: "Buy", rumi: "Beli", desc: "Perniagaan", stroke: "Business" }
+                ]
+            },
+            {
+                id: 16,
+                title: "Level 16: Technology & Gadgets",
+                desc: "Teknologi moden dan gajet.",
+                items: [
+                    { char: "Phone", rumi: "Telefon", desc: "Gajet", stroke: "Tech" },
+                    { char: "Internet", rumi: "Internet", desc: "Digital", stroke: "Tech" },
+                    { char: "Camera", rumi: "Kamera", desc: "Alatan", stroke: "Tech" },
+                    { char: "Screen", rumi: "Skrin", desc: "Papar", stroke: "Tech" },
+                    { char: "Battery", rumi: "Bateri", desc: "Kuasa", stroke: "Tech" },
+                    { char: "Password", rumi: "Kata laluan", desc: "Keselamatan", stroke: "Tech" },
+                    { char: "Website", rumi: "Laman web", desc: "Internet", stroke: "Tech" },
+                    { char: "Email", rumi: "Emel", desc: "Komunikasi", stroke: "Tech" },
+                    { char: "Software", rumi: "Perisian", desc: "Komputer", stroke: "Tech" },
+                    { char: "Network", rumi: "Rangkaian", desc: "Hubungan", stroke: "Tech" }
+                ]
+            },
+            {
+                id: 17,
+                title: "Level 17: Sports & Hobbies",
+                desc: "Sukan dan hobi riadah.",
+                items: [
+                    { char: "Football", rumi: "Bola sepak", desc: "Sukan", stroke: "Sport" },
+                    { char: "Basketball", rumi: "Bola keranjang", desc: "Sukan", stroke: "Sport" },
+                    { char: "Swimming", rumi: "Berenang", desc: "Aktiviti", stroke: "Sport" },
+                    { char: "Running", rumi: "Larian", desc: "Aktiviti", stroke: "Sport" },
+                    { char: "Music", rumi: "Muzik", desc: "Hobi", stroke: "Hobby" },
+                    { char: "Game", rumi: "Permainan", desc: "Riadah", stroke: "Hobby" },
+                    { char: "Movie", rumi: "Filem / Wayang", desc: "Hiburan", stroke: "Hobby" },
+                    { char: "Drawing", rumi: "Melukis", desc: "Seni", stroke: "Hobby" },
+                    { char: "Reading", rumi: "Membaca", desc: "Hobi", stroke: "Hobby" },
+                    { char: "Travel", rumi: "Melancong", desc: "Aktiviti", stroke: "Hobby" }
+                ]
+            },
+            {
+                id: 18,
+                title: "Level 18: City & Places",
+                desc: "Tempat penting di dalam bandar.",
+                items: [
+                    { char: "City", rumi: "Bandar", desc: "Kawasan", stroke: "Place" },
+                    { char: "Street", rumi: "Jalan / Lorong", desc: "Kawasan", stroke: "Place" },
+                    { char: "Park", rumi: "Taman", desc: "Riadah", stroke: "Place" },
+                    { char: "School", rumi: "Sekolah", desc: "Pendidikan", stroke: "Place" },
+                    { char: "Library", rumi: "Perpustakaan", desc: "Pendidikan", stroke: "Place" },
+                    { char: "Museum", rumi: "Muzium", desc: "Pelancongan", stroke: "Place" },
+                    { char: "Station", rumi: "Stesen", desc: "Pengangkutan", stroke: "Place" },
+                    { char: "Bridge", rumi: "Jambatan", desc: "Infrastruktur", stroke: "Place" },
+                    { char: "Building", rumi: "Bangunan", desc: "Seni bina", stroke: "Place" },
+                    { char: "Square", rumi: "Dataran", desc: "Kawasan", stroke: "Place" }
+                ]
+            },
+            {
+                id: 19,
+                title: "Level 19: Adjectives & Descriptions",
+                desc: "Kata sifat menghuraikan keadaan.",
+                items: [
+                    { char: "Fast", rumi: "Laju / Cepat", desc: "Sifat", stroke: "Adjective" },
+                    { char: "Slow", rumi: "Perlahan", desc: "Sifat", stroke: "Adjective" },
+                    { char: "Big", rumi: "Besar", desc: "Saiz", stroke: "Adjective" },
+                    { char: "Small", rumi: "Kecil", desc: "Saiz", stroke: "Adjective" },
+                    { char: "New", rumi: "Baharu", desc: "Keadaan", stroke: "Adjective" },
+                    { char: "Old", rumi: "Lama / Tua", desc: "Keadaan", stroke: "Adjective" },
+                    { char: "Clean", rumi: "Bersih", desc: "Keadaan", stroke: "Adjective" },
+                    { char: "Dirty", rumi: "Kotor", desc: "Keadaan", stroke: "Adjective" },
+                    { char: "Strong", rumi: "Kuat", desc: "Fizikal", stroke: "Adjective" },
+                    { char: "Weak", rumi: "Lemah", desc: "Fizikal", stroke: "Adjective" }
+                ]
+            },
+            {
+                id: 20,
+                title: "Level 20: Advanced Sentences & Time",
+                desc: "Frasa lanjutan dan keterangan masa.",
+                items: [
+                    { char: "Always", rumi: "Sentiasa", desc: "Keterangan masa", stroke: "Adverb" },
+                    { char: "Never", rumi: "Tidak pernah", desc: "Keterangan masa", stroke: "Adverb" },
+                    { char: "Sometimes", rumi: "Kadang-kadang", desc: "Keterangan masa", stroke: "Adverb" },
+                    { char: "Usually", rumi: "Biasanya", desc: "Keterangan masa", stroke: "Adverb" },
+                    { char: "Because", rumi: "Kerana", desc: "Kata hubung", stroke: "Conjunction" },
+                    { char: "Although", rumi: "Walaupun", desc: "Kata hubung", stroke: "Conjunction" },
+                    { char: "Therefore", rumi: "Oleh itu", desc: "Kata hubung", stroke: "Conjunction" },
+                    { char: "Something", rumi: "Sesuatu", desc: "Kata ganti", stroke: "Pronoun" },
+                    { char: "Everything", rumi: "Segalanya", desc: "Kata ganti", stroke: "Pronoun" },
+                    { char: "Somewhere", rumi: "Di suatu tempat", desc: "Keterangan tempat", stroke: "Adverb" }
+                ]
+            }
+        ];
+
+        const conversationLabData = [
+            {
+                id: 'cv-1',
+                title: "1. Self Introduction (Perkenalan Diri)",
+                desc: "Frasa asas memperkenalkan nama, asal dan pekerjaan.",
+                items: [
+                    { char: "Hello, my name is Ali.", rumi: "Helo, nama saya Ali.", desc: "Perkenalan nama" },
+                    { char: "Where are you from?", rumi: "Dari mana asal anda?", desc: "Tanya asal" },
+                    { char: "I am from Malaysia.", rumi: "Saya berasal dari Malaysia.", desc: "Jawab asal" },
+                    { char: "What do you do?", rumi: "Apakah pekerjaan anda?", desc: "Tanya kerja" },
+                    { char: "I am a student.", rumi: "Saya seorang pelajar.", desc: "Jawab kerja" },
+                    { char: "Nice to meet you.", rumi: "Gembira bertemu dengan anda.", desc: "Penutup mesra" }
+                ]
+            },
+            {
+                id: 'cv-2',
+                title: "2. At the Restaurant (Di Restoran)",
+                desc: "Pesan makanan, minta menu dan bayaran.",
+                items: [
+                    { char: "Can I see the menu, please?", rumi: "Boleh saya lihat menu?", desc: "Minta menu" },
+                    { char: "I would like to order this.", rumi: "Saya mahu pesan hidangan ini.", desc: "Pesanan" },
+                    { char: "Is this spicy?", rumi: "Adakah makanan ini pedas?", desc: "Tanya makanan" },
+                    { char: "The food is delicious.", rumi: "Makanan ini sangat sedap.", desc: "Pujian" },
+                    { char: "Can I have the bill, please?", rumi: "Minta bil bayaran.", desc: "Bayaran" },
+                    { char: "Can I pay by credit card?", rumi: "Boleh bayar guna kad kredit?", desc: "Kad" }
+                ]
+            },
+            {
+                id: 'cv-3',
+                title: "3. Shopping & Asking Price (Membeli-belah)",
+                desc: "Tanya harga, saiz dan warna.",
+                items: [
+                    { char: "How much is this?", rumi: "Berapa harga barang ini?", desc: "Harga" },
+                    { char: "Do you have a smaller size?", rumi: "Ada saiz yang lebih kecil?", desc: "Saiz" },
+                    { char: "Can I try this on?", rumi: "Boleh saya cuba pakai?", desc: "Cuba baju" },
+                    { char: "It is too expensive.", rumi: "Harganya terlalu mahal.", desc: "Komen" },
+                    { char: "I will take this one.", rumi: "Saya ambil yang ini.", desc: "Keputusan" }
+                ]
+            },
+            {
+                id: 'cv-4',
+                title: "4. Asking Directions (Bertanya Arah)",
+                desc: "Mencari tandas, stesen dan hotel.",
+                items: [
+                    { char: "Where is the restroom?", rumi: "Di manakah tandas?", desc: "Tandas" },
+                    { char: "How do I get to the station?", rumi: "Bagaimana cara ke stesen?", desc: "Stesen" },
+                    { char: "Is it far from here?", rumi: "Adakah ia jauh dari sini?", desc: "Jarak" },
+                    { char: "Turn left, then turn right.", rumi: "Belok kiri, kemudian belok kanan.", desc: "Arah" },
+                    { char: "Thank you for your help.", rumi: "Terima kasih atas bantuan anda.", desc: "Terima kasih" }
+                ]
+            }
+        ];
+
+        const grammarLabData = [
+            {
+                id: 'g1',
+                title: "1. Pronouns (Kata Ganti Nama)",
+                desc: "I, You, He, She, We, They.",
+                items: [
+                    { char: "I / Me / My", rumi: "Saya / Aku", desc: "Kata ganti diri pertama", stroke: "Formula: I (Subjek), Me (Objek), My (Kepunyaan)." },
+                    { char: "You / Your", rumi: "Awak / Kamu", desc: "Kata ganti diri kedua", stroke: "Formula: You (Subjek/Objek), Your (Kepunyaan)." },
+                    { char: "He / Him / His", rumi: "Dia (Lelaki)", desc: "Kata ganti diri ketiga lelaki", stroke: "Contoh: He is a doctor." },
+                    { char: "She / Her / Hers", rumi: "Dia (Perempuan)", desc: "Kata ganti diri ketiga wanita", stroke: "Contoh: She is reading a book." },
+                    { char: "They / Them", rumi: "Mereka", desc: "Kata ganti jamak", stroke: "Contoh: They are playing football." }
+                ]
+            },
+            {
+                id: 'g2',
+                title: "2. Verb 'To Be' (Am, Is, Are)",
+                desc: "Penggunaan kata pemeri asas.",
+                items: [
+                    { char: "I am...", rumi: "Saya adalah...", desc: "Gandingan khas untuk 'I'", stroke: "Contoh: I am happy." },
+                    { char: "He / She / It is...", rumi: "Dia / Ini adalah...", desc: "Gandingan untuk kata nama tunggal", stroke: "Contoh: She is smart." },
+                    { char: "You / We / They are...", rumi: "Awak / Kami / Mereka adalah...", desc: "Gandingan untuk kata nama jamak", stroke: "Contoh: They are friends." },
+                    { char: "Was / Were (Past)", rumi: "Adalah (Masa lepas)", desc: "Bentuk lampau To Be", stroke: "Contoh: I was tired yesterday." }
+                ]
+            },
+            {
+                id: 'g3',
+                title: "3. Simple Tenses (Masa Asas)",
+                desc: "Present, Past & Future Tense.",
+                items: [
+                    { char: "Present Simple", rumi: "Masa Kini (Rutin)", desc: "Aktiviti harian / fakta", stroke: "Formula: Subject + Verb 1 (s/es).\nContoh: I eat apple every day." },
+                    { char: "Past Simple", rumi: "Masa Lampau (Dah lepas)", desc: "Perbuatan yang sudah berlaku", stroke: "Formula: Subject + Verb 2.\nContoh: I ate an apple yesterday." },
+                    { char: "Future Simple", rumi: "Masa Hadapan (Akan datang)", desc: "Perbuatan yang akan dilakukan", stroke: "Formula: Subject + will + Verb 1.\nContoh: I will eat an apple tomorrow." }
+                ]
+            }
+        ];
+
+        let userScore = 0;
+        let currentLevelObj = null;
+        let currentStudyIndex = 0;
+        let currentQuizIndex = 0;
+        let quizScoreCount = 0;
+        let activeQuizItems = [];
+
+        let completedLevels = JSON.parse(localStorage.getItem('english_completed_levels') || '{}');
+
+        let allWords = [];
+        let currentListenIndex = 0;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderLevelCards();
+            renderConversationCards();
+            renderGrammarLabCards();
+            renderWritingCharsGrid();
+            buildAllWordsList();
+            showSection('home');
+            initCanvas();
+        });
+
+        function showSection(sectionId) {
+            ['home', 'levels', 'conversation', 'grammar-lab', 'writing', 'study', 'quiz', 'words', 'listen', 'result'].forEach(id => {
+                const el = document.getElementById(`section-${id}`);
+                if (el) el.classList.add('hidden');
+            });
+            const target = document.getElementById(`section-${sectionId}`);
+            if (target) target.classList.remove('hidden');
+        }
+
+        function renderLevelCards() {
+            const container = document.getElementById('levels-container');
+            container.innerHTML = '';
+            levelsData.forEach(lvl => {
+                const isCompleted = completedLevels[lvl.id] === true;
+                const bookColorClass = isCompleted ? 'text-amber-400 bg-amber-500/20 border-amber-500/40' : 'text-slate-500 bg-slate-800/50 border-slate-700/50';
+
+                const card = document.createElement('div');
+                card.className = "bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 space-y-4 shadow-lg transition";
+                card.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <span class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold rounded-full border border-blue-500/20">LEVEL ${lvl.id}</span>
+                        <div class="w-9 h-9 rounded-lg border flex items-center justify-center ${bookColorClass}" title="${isCompleted ? 'Kuiz Selesai!' : 'Belum Selesai'}">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-white mb-1">${lvl.title}</h3>
+                        <p class="text-slate-400 text-sm">${lvl.desc}</p>
+                    </div>
+                    <button onclick="startLevel(${lvl.id})" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition flex items-center justify-center space-x-2">
+                        <span>Mula Study & Practice</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderConversationCards() {
+            const container = document.getElementById('conversation-container');
+            container.innerHTML = '';
+            conversationLabData.forEach(cv => {
+                const card = document.createElement('div');
+                card.className = "bg-slate-900 border border-slate-800 hover:border-pink-500/50 rounded-2xl p-6 space-y-4 shadow-lg transition";
+                card.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <span class="px-3 py-1 bg-pink-500/10 text-pink-400 text-xs font-bold rounded-full border border-pink-500/20">PERBUALAN</span>
+                        <i class="fa-solid fa-comments text-pink-500/60"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-white mb-1">${cv.title}</h3>
+                        <p class="text-slate-400 text-sm">${cv.desc}</p>
+                    </div>
+                    <button onclick="startConversation('${cv.id}')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition flex items-center justify-center space-x-2">
+                        <span>Mula Belajar Dialog</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderGrammarLabCards() {
+            const container = document.getElementById('grammar-lab-container');
+            container.innerHTML = '';
+            grammarLabData.forEach(g => {
+                const card = document.createElement('div');
+                card.className = "bg-slate-900 border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 space-y-4 shadow-lg transition";
+                card.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-bold rounded-full border border-emerald-500/20">GRAMMAR LAB</span>
+                        <i class="fa-solid fa-atom text-emerald-500/60"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-white mb-1">${g.title}</h3>
+                        <p class="text-slate-400 text-sm">${g.desc}</p>
+                    </div>
+                    <button onclick="startGrammarLab('${g.id}')" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-slate-700 transition flex items-center justify-center space-x-2">
+                        <span>Buka Makmal Tatabahasa</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderWritingCharsGrid() {
+            const grid = document.getElementById('writing-chars-grid');
+            grid.innerHTML = '';
+            writingData.forEach((w, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "h-12 rounded-xl bg-slate-950 border border-slate-800 hover:border-orange-500 text-amber-400 font-bold text-lg flex items-center justify-center transition";
+                btn.innerText = w.char;
+                btn.onclick = () => { currentWritingIndex = idx; updateWritingCard(); };
+                grid.appendChild(btn);
+            });
+        }
+
+        function openConversationMenu() { showSection('conversation'); }
+        function openGrammarLabMenu() { showSection('grammar-lab'); }
+        function openWritingLab() { 
+            showSection('writing'); 
+            updateWritingCard();
+            setTimeout(initCanvas, 100);
+        }
+
+        function updateWritingCard() {
+            const item = writingData[currentWritingIndex];
+            document.getElementById('writing-romaji-badge').innerText = `Phonics: ${item.rumi}`;
+            document.getElementById('writing-char-title').innerText = `${item.type}`;
+            document.getElementById('writing-guide-char').innerText = item.char;
+            document.getElementById('writing-stroke-text').innerText = item.stroke;
+            document.getElementById('writing-progress').innerText = `${currentWritingIndex + 1} / ${writingData.length}`;
+            clearCanvas();
+        }
+
+        function navigateWriting(dir) {
+            currentWritingIndex += dir;
+            if (currentWritingIndex < 0) currentWritingIndex = 0;
+            if (currentWritingIndex >= writingData.length) currentWritingIndex = writingData.length - 1;
+            updateWritingCard();
+        }
+
+        function playWritingAudio() {
+            const item = writingData[currentWritingIndex];
+            speakText(item.char);
+        }
+
+        function initCanvas() {
+            canvas = document.getElementById('draw-canvas');
+            if (!canvas) return;
+            ctx = canvas.getContext('2d');
+            ctx.strokeStyle = '#f59e0b';
+            ctx.lineWidth = 6;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            canvas.onmousedown = startDrawing;
+            canvas.onmousemove = draw;
+            canvas.onmouseup = stopDrawing;
+            canvas.onmouseleave = stopDrawing;
+
+            canvas.ontouchstart = (e) => { e.preventDefault(); startDrawing(e.touches[0]); };
+            canvas.ontouchmove = (e) => { e.preventDefault(); draw(e.touches[0]); };
+            canvas.ontouchend = stopDrawing;
+        }
+
+        function getMousePos(e) {
+            const rect = canvas.getBoundingClientRect();
+            return {
+                x: (e.clientX - rect.left) * (canvas.width / rect.width),
+                y: (e.clientY - rect.top) * (canvas.height / rect.height)
+            };
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            const pos = getMousePos(e);
+            ctx.beginPath();
+            ctx.moveTo(pos.x, pos.y);
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            const pos = getMousePos(e);
+            ctx.lineTo(pos.x, pos.y);
+            ctx.stroke();
+        }
+
+        function stopDrawing() { isDrawing = false; }
+        function clearCanvas() { if (!ctx) return; ctx.clearRect(0, 0, canvas.width, canvas.height); }
+
+        function startLevel(levelId) {
+            currentLevelObj = levelsData.find(l => l.id === levelId);
+            currentStudyIndex = 0;
+            updateStudyCard();
+            showSection('study');
+        }
+
+        function startConversation(cvId) {
+            currentLevelObj = conversationLabData.find(cv => cv.id === cvId);
+            currentStudyIndex = 0;
+            updateStudyCard();
+            showSection('study');
+        }
+
+        function startGrammarLab(gId) {
+            currentLevelObj = grammarLabData.find(g => g.id === gId);
+            currentStudyIndex = 0;
+            updateStudyCard();
+            showSection('study');
+        }
+
+        function backFromStudy() {
+            if (conversationLabData.some(cv => cv.id === currentLevelObj.id)) {
+                showSection('conversation');
+            } else if (grammarLabData.some(g => g.id === currentLevelObj.id)) {
+                showSection('grammar-lab');
+            } else {
+                showSection('levels');
+            }
+        }
+
+        function updateStudyCard() {
+            if (!currentLevelObj) return;
+            const item = currentLevelObj.items[currentStudyIndex];
+            
+            if (currentLevelObj.id.toString().startsWith('cv-')) {
+                document.getElementById('study-level-badge').innerText = "CONVERSATION LAB";
+            } else if (currentLevelObj.id.toString().startsWith('g')) {
+                document.getElementById('study-level-badge').innerText = "GRAMMAR LAB";
+            } else {
+                document.getElementById('study-level-badge').innerText = `LEVEL ${currentLevelObj.id}`;
+            }
+
+            document.getElementById('study-level-title').innerText = currentLevelObj.title;
+            document.getElementById('study-progress-text').innerText = `${currentStudyIndex + 1} / ${currentLevelObj.items.length}`;
+
+            const charEl = document.getElementById('study-char');
+            let emojiDisplay = visualEmojiMap[item.char] ? `<span class="text-3xl mr-2">${visualEmojiMap[item.char]}</span>` : '';
+            charEl.innerHTML = `${emojiDisplay} ${item.char}`;
+            charEl.className = item.char.length > 12 ? "text-xl md:text-2xl font-black text-amber-400 text-center" : "text-2xl md:text-3xl font-black text-amber-400 text-center flex items-center justify-center flex-wrap";
+
+            document.getElementById('study-romaji').innerText = item.rumi;
+            document.getElementById('study-desc').innerText = item.desc;
+            document.getElementById('study-stroke').innerText = item.stroke || 'Nota pembelajaran Bahasa Inggeris.';
+
+            document.getElementById('btn-prev-char').disabled = (currentStudyIndex === 0);
+            document.getElementById('btn-next-char').style.display = (currentStudyIndex === currentLevelObj.items.length - 1) ? 'none' : 'inline-flex';
+        }
+
+        function navigateStudy(dir) {
+            currentStudyIndex += dir;
+            if (currentStudyIndex < 0) currentStudyIndex = 0;
+            if (currentStudyIndex >= currentLevelObj.items.length) currentStudyIndex = currentLevelObj.items.length - 1;
+            updateStudyCard();
+        }
+
+        function playStudyAudio() {
+            const item = currentLevelObj.items[currentStudyIndex];
+            speakText(item.char);
+        }
+
+        function playQuizAudio() {
+            const item = activeQuizItems[currentQuizIndex];
+            speakText(item.char);
+        }
+
+        function speakText(txt) {
+            const utterance = new SpeechSynthesisUtterance(txt);
+            utterance.lang = 'en-US';
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function startQuizForCurrentModule() {
+            activeQuizItems = [...currentLevelObj.items];
+            currentQuizIndex = 0;
+            quizScoreCount = 0;
+            document.getElementById('quiz-title-mode').innerText = `PRACTICE: ${currentLevelObj.title}`;
+            showSection('quiz');
+            loadQuizQuestion();
+        }
+
+        function loadQuizQuestion() {
+            if (currentQuizIndex >= activeQuizItems.length) {
+                finishQuiz();
+                return;
+            }
+
+            const currentItem = activeQuizItems[currentQuizIndex];
+            document.getElementById('quiz-progress-text').innerText = `${currentQuizIndex + 1} / ${activeQuizItems.length}`;
+            document.getElementById('quiz-progress-bar').style.width = `${((currentQuizIndex + 1) / activeQuizItems.length) * 100}%`;
+            
+            const quizDisplay = document.getElementById('quiz-char-display');
+            quizDisplay.innerText = currentItem.char;
+
+            const optionsGrid = document.getElementById('quiz-options-grid');
+            optionsGrid.innerHTML = '';
+            document.getElementById('quiz-feedback').classList.add('hidden');
+
+            let options = [currentItem.rumi];
+            let pool = currentLevelObj ? currentLevelObj.items : allWords;
+            while (options.length < 4 && options.length < pool.length) {
+                let rand = pool[Math.floor(Math.random() * pool.length)].rumi;
+                if (!options.includes(rand)) options.push(rand);
+            }
+            options.sort(() => Math.random() - 0.5);
+
+            document.getElementById('quiz-instruction-label').innerText = "Apakah maksud bagi perkataan Inggeris ini?";
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "py-3.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold border border-slate-700 transition text-xs md:text-sm shadow-md";
+                btn.innerText = opt;
+                btn.onclick = () => checkQuizAnswer(opt, currentItem.rumi, btn);
+                optionsGrid.appendChild(btn);
+            });
+        }
+
+        function checkQuizAnswer(selected, correct, btnEl) {
+            const feedback = document.getElementById('quiz-feedback');
+            feedback.classList.remove('hidden');
+
+            if (selected === correct) {
+                quizScoreCount++;
+                feedback.className = "p-3 rounded-xl text-center text-sm font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
+                feedback.innerText = "Betul! Syabas 🎉";
+                btnEl.classList.add('bg-emerald-600', 'border-emerald-500');
+            } else {
+                feedback.className = "p-3 rounded-xl text-center text-sm font-bold bg-red-500/20 text-red-400 border border-red-500/30";
+                feedback.innerText = `Salah. Jawapan: ${correct}`;
+                btnEl.classList.add('bg-red-600', 'border-red-500');
+            }
+
+            setTimeout(() => {
+                currentQuizIndex++;
+                loadQuizQuestion();
+            }, 1200);
+        }
+
+        function finishQuiz() {
+            const total = activeQuizItems.length;
+            const percentage = Math.round((quizScoreCount / total) * 100);
+            const pointsEarned = quizScoreCount * 5;
+            userScore += pointsEarned;
+            document.getElementById('stat-score').innerText = userScore;
+
+            if (levelsData.some(l => l.id === currentLevelObj?.id)) {
+                completedLevels[currentLevelObj.id] = true;
+                localStorage.setItem('english_completed_levels', JSON.stringify(completedLevels));
+            }
+
+            document.getElementById('result-score').innerText = `${percentage}%`;
+            document.getElementById('result-points').innerText = `+${pointsEarned}`;
+            showSection('result');
+            if (percentage >= 70) confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+        }
+
+        function buildAllWordsList() {
+            allWords = [];
+            levelsData.forEach(lvl => { lvl.items.forEach(it => allWords.push({...it, level: lvl.id})); });
+            conversationLabData.forEach(cv => { cv.items.forEach(it => allWords.push({...it, level: cv.title})); });
+            grammarLabData.forEach(g => { g.items.forEach(it => allWords.push({...it, level: g.title})); });
+        }
+
+        function openWordsMode() {
+            showSection('words');
+            renderWords(allWords);
+        }
+
+        function renderWords(list) {
+            const grid = document.getElementById('words-grid');
+            grid.innerHTML = '';
+            list.forEach(w => {
+                let emojiIcon = visualEmojiMap[w.char] ? `<span class="text-2xl mr-2">${visualEmojiMap[w.char]}</span>` : '';
+                const card = document.createElement('div');
+                card.className = "bg-slate-900 border border-slate-800 p-4 rounded-xl flex justify-between items-center";
+                card.innerHTML = `
+                    <div class="flex items-center">
+                        ${emojiIcon}
+                        <div>
+                            <div class="text-lg font-bold text-amber-400">${w.char}</div>
+                            <div class="text-xs text-blue-400 font-semibold">${w.rumi} - ${w.desc}</div>
+                        </div>
+                    </div>
+                    <button onclick="speakText('${w.char}')" class="w-9 h-9 bg-slate-800 hover:bg-slate-700 rounded-lg text-white flex items-center justify-center">
+                        <i class="fa-solid fa-volume-high text-xs"></i>
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterWords() {
+            const query = document.getElementById('word-search').value.toLowerCase();
+            const filtered = allWords.filter(w => w.char.toLowerCase().includes(query) || w.rumi.toLowerCase().includes(query) || w.desc.toLowerCase().includes(query));
+            renderWords(filtered);
+        }
+
+        function openListenMode() {
+            currentListenIndex = 0;
+            showSection('listen');
+            updateListenCard();
+        }
+
+        function updateListenCard() {
+            const item = allWords[currentListenIndex];
+            document.getElementById('listen-char').innerText = item.char;
+            document.getElementById('listen-romaji').innerText = item.rumi;
+            document.getElementById('listen-desc').innerText = item.desc;
+            document.getElementById('listen-progress').innerText = `${currentListenIndex + 1} / ${allWords.length}`;
+        }
+
+        function navigateListen(dir) {
+            currentListenIndex += dir;
+            if (currentListenIndex < 0) currentListenIndex = 0;
+            if (currentListenIndex >= allWords.length) currentListenIndex = allWords.length - 1;
+            updateListenCard();
+        }
+
+        function playListenAudio() {
+            const item = allWords[currentListenIndex];
+            speakText(item.char);
+        }
+    </script>
+</body>
+</html>
